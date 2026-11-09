@@ -89,3 +89,52 @@ Source-precision weapon values must be used in implementation, not the two-decim
 - Oregon ANG F-16 ADF history: https://www.142wg.ang.af.mil/News/Article-Display/Article/3663270/oregons-viper-years/ (ADF retrofit and radar-guided Sparrow integration, distinct from original Block 15).
 
 **No source-of-truth changes:** this review does not modify the live Google Docs, Google Sheets, aircraft CSV or weapons CSV. If the user approves a candidate model, update sources of truth and revise Annex D and acceptance tables together.
+
+
+## Refinement 2 — user-selected Phoenix trial values and universal weapon IDs (9 November 2026)
+
+**This refinement supersedes only the earlier illustrative AIM-54A 0.90 and AIM-54C 0.85 *trial proposals* above. Those earlier trial calculations remain preserved as an audit record. Aircraft and weapon authoritative catalogues and approved JIRA Annex D are unchanged.**
+
+User feedback: (i) an F-14 gun kill should earn more points than an AIM-9L or AIM-9M kill with otherwise identical inputs; (ii) AIM-9M multiplier 0.94 is close enough to AIM-9L's 1.00; (iii) AIM-54A should be 0.10 better (= **0.84**) than AIM-9M and AIM-54C a further 0.05 better (= **0.79**); (iv) **one universal catalogue multiplier per exact weapon variant/ID, independent of carrier aircraft**.
+
+### Refined candidate global weapon values
+
+| Exact weapon | Catalogue ID | Current approved multiplier | Refined candidate | Reason |
+| --- | --- | ---: | ---: | --- |
+| M61 Vulcan | AAM-018 | 1.20 | 1.20 | Gun kill still hardest among these choices |
+| AIM-9L | AAM-043 | 1.00 | 1.00 | Anchor unchanged |
+| AIM-9M | AAM-044 | 0.94 | 0.94 | Accepted distinction from AIM-9L |
+| AIM-54A | AAM-076 | 1.18 (source 1.175) | **0.84** | 0.10 below AIM-9M |
+| AIM-54C | AAM-077 | 1.09 (source 1.085) | **0.79** | 0.05 below AIM-54A |
+
+These multipliers represent proposed *global weapon catalogue* changes, **not F-14-specific values**. Example: AIM-9M (AAM-044) uses 0.94 when carried by an F-14A, F-16A, F-15C or any other aircraft. Final kill **points** may still differ between aircraft and AI targets because aircraft capability, AI skill, and the AI target's reference weapon change. That is correct under existing v0.3 methodology.
+
+The proposed 0.79 for AIM-54C is slightly below current AIM-120B 0.80; before a universal catalogue update, review the complete inter-missile ordering for consistency, not just the F-14. Catalogue v1.0 raw-difficulty field and scoring multiplier have a defined relationship: if the refined values are accepted, update the raw value or explicitly revise catalogue derivation consistently rather than leaving contradictory columns.
+
+### Resulting F-14A against MiG-29A scores — *existing* aircraft ratings 790 vs 760
+
+AI MiG-29A best-weapon reference remains R-73 (AAM-052), source multiplier 0.88. This first comparison changes **only Phoenix weapon multipliers**; original aircraft factor is 0.91 displayed.
+
+| Player F-14A weapon | Relative weapon factor | Cadet | Rookie | Trained | Veteran | Ace |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| M61 (1.20) | 1.16 | 64 | 85 | 106 | 127 | 148 |
+| AIM-9L (1.00) | 1.06 | 58 | 77 | 97 | 116 | 136 |
+| AIM-9M (0.94) | 1.03 | 56 | 75 | 94 | 113 | 132 |
+| AIM-54A (0.84) | 0.98 | 54 | 72 | 90 | 107 | 125 |
+| AIM-54C (0.79) | 0.96 | 52 | 70 | 87 | 105 | 122 |
+
+### Resulting F-14A against MiG-29A scores — *earlier proposed* aircraft ratings 830 vs 780
+
+This second comparison **also** assumes the provisional aircraft-rating review (not approved); aircraft factor is 0.86 displayed.
+
+| Player F-14A weapon | Cadet | Rookie | Trained | Veteran | Ace |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| M61 | 60 | 80 | 99 | 119 | 139 |
+| AIM-9L | 55 | 73 | 91 | 109 | 127 |
+| AIM-9M | 53 | 71 | 88 | 106 | 124 |
+| AIM-54A | 50 | 67 | 84 | 101 | 118 |
+| AIM-54C | 49 | 65 | 82 | 98 | 115 |
+
+The F-14 gun scores exceed those of both Sidewinders and Phoenix missiles in either comparison. The sole base multiplier per exact weapon remains fixed regardless of platform. Final scores are produced from full-precision catalogue input and aircraft factor, rounding only the final award.
+
+**Next calibration action:** check the entire 101-weapon catalogue ordering and 199-aircraft baseline for consistency (including F-14B current rating 805) before replacing approved values or acceptance tests. Do not silently overwrite the previous trials or the live Google Docs and Sheets.
