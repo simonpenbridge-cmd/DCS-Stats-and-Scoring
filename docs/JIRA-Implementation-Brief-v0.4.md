@@ -605,6 +605,8 @@ Purpose: validate that the *same* MiG-29A human, using R-73 AAM-052 (0.88), rece
 
 Interpretation: a more capable equipped enemy earns more points for an R-73 kill because its effective reference multiplier is lower. This is **not** a per-carrier weapon-factor change. The fixed F-14A aircraft rating in this test has not yet been made loadout-sensitive; any future aircraft-configuration rating changes would require a separate full-catalogue audit.
 
+**Acceptance-test assumption (v0.4):** Existing Tables 1–31 are fixed-configured examples, not automatic generic-aircraft defaults. Each example is valid only if its stated reference AAM ID is actually carried in that test mission; otherwise, recompute the reference from the actual eligible loadout and regenerate that case's expected score. In particular, all unarmed-target fallback examples assume the specified player reference weapon is loaded.
+
 ## 9. Version 0.4 changes, avionics review and remaining decisions
 
 ### 9.1 — Amendments accepted in v0.4
