@@ -524,7 +524,7 @@ Weapon-fit note: historical compatibility does not guarantee carriage in the par
 
 Historical source checks: USAF F-4E internal cannon — https://www.163atkw.ang.af.mil/About-Us/Fact-Sheets/Display/Article/452913/mcdonnell-douglas-f-4e-phantom-ii/ ; Vietnam-era F-4E illustrative loads — https://www.cybermodeler.com/aircraft/f-4/f-4e_loads.shtml ; AIM-4D compatibility — https://www.ausairpower.net/Falcon-Evolution.html ; Vietnamese 1972 MiG-21PFM service — https://vietnam.warbirdsresourcegroup.org/mig21_history_vietnam.html . These are historical cross-checks; scoring numbers come from the two project catalogues.
 
-Status: Annex C is a Vietnam-era equipment comparison using existing F-4E late and MiG-21bis catalogue ratings, for v0.3 programmer acceptance review. Annexes A and B and the main specification remain unchanged. Annex D follows; Annexes E–F remain unpopulated.
+Status: Annex C is a Vietnam-era equipment comparison using existing F-4E late and MiG-21bis catalogue ratings, for v0.3 programmer acceptance review. Annexes A and B and the main specification remain unchanged. Annexes D and E follow; Annex F remains unpopulated.
 
 ## Annex D — Late Cold War (mid-1980s): F-14A and F-16A versus MiG-29A
 
@@ -586,7 +586,7 @@ Acceptance tests, listed Cadet / Rookie / Trained / Veteran / Ace:
 - F-14A M61: **64 / 85 / 106 / 127 / 148**; F-14A AIM-54A: **54 / 72 / 90 / 107 / 125**; F-14A AIM-54C: **52 / 70 / 87 / 105 / 122**.
 - F-16A M61: **66 / 87 / 109 / 131 / 153**; F-16A AIM-9L: **60 / 80 / 100 / 120 / 140**; F-16A AIM-9M: **58 / 78 / 97 / 116 / 136**.
 
-Implementation notes: import/confirm the original F-16A IR-only 780 entry into the aircraft catalogue before treating the F-16A cases as production acceptance tests; track exact year, country, flight model and available DCS loadouts. Do not override the selected MiG-29 best-weapon reference or round intermediate multipliers. Earlier Annexes A–C and Tables 1–27 remain unchanged. Annexes E–F remain planned.
+Implementation notes: import/confirm the original F-16A IR-only 780 entry into the aircraft catalogue before treating the F-16A cases as production acceptance tests; track exact year, country, flight model and available DCS loadouts. Do not override the selected MiG-29 best-weapon reference or round intermediate multipliers. Earlier Annexes A–C and Tables 1–27 remain unchanged. Annex E follows; Annex F remains planned.
 
 Historical source checks: F-16A initial service and 1981 growth provisions — https://www.af.mil/News/Article/104505/f-16-fighting-falcon/ ; 1980s F-16A with AIM-9L — https://www.airandspaceforces.com/app/uploads/1994/10/1094_Oct1994.pdf ; US Navy Phoenix dates — https://www.navair.navy.mil/node/12701 ; US Navy training plan (AIM-54C formal IOC December 1986) — https://www.globalsecurity.org/military/library/policy/navy/ntsp/aim54.htm .
 
