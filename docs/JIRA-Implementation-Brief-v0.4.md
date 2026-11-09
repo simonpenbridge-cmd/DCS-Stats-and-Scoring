@@ -609,6 +609,48 @@ Interpretation: a more capable equipped enemy earns more points for an R-73 kill
 
 **Acceptance-test assumption (v0.4):** Existing Tables 1–31 are fixed-configured examples, not automatic generic-aircraft defaults. Each example is valid only if its stated reference AAM ID is actually carried in that test mission; otherwise, recompute the reference from the actual eligible loadout and regenerate that case's expected score. In particular, all unarmed-target fallback examples assume the specified player reference weapon is loaded.
 
+## Annex E — Early Modern: F/A-18C Lot 20 versus Su-27 baseline
+
+**Status:** provisional scoring acceptance example pending approval of an AMRAAM-capable F/A-18C aircraft rating. Human player flies F/A-18C and destroys Su-27 AI at Cadet, Rookie, Trained, Veteran or Ace skill. Exactly four credited weapons are covered: M61 20 mm cannon, AIM-7F Sparrow, AIM-9L Sidewinder and AIM-120C AMRAAM.
+
+**Configuration and rating qualification:** Aircraft Ratings V7.0 lists **F/A-18C early = 800** (Sparrow-era fit, before AMRAAM), but does **not** provide an independent A2A rating for the later DCS F/A-18C Lot 20 with AIM-120C. It would be misleading to imply that the existing 800 rating was derived for a modern ARH capability. **845 is therefore a provisional, analyst-selected working rating for this annex only**, placed between Su-27 baseline 830 and F-15C late AMRAAM 850. It is not adopted into Aircraft Ratings V7.0, and remains subject to the avionics review. This is a test fixture, not an empirically derived ranking or an approved rating.
+
+**AI target:** Su-27 baseline = **830** (Aircraft V7.0). For this test, the AI Su-27 is **actually armed with the R-73 (AAM-052)**, catalogue v1.1 multiplier **0.88**; R-27ER (AAM-075, 1.11) may also be carried but is not its lowest-multiplier eligible weapon. No R-77/active-radar modification is assumed. If R-73 is not carried in a different mission, its reference must be recalculated from the actual AI loadout. AI skill factors remain 0.60 / 0.80 / 1.00 / 1.20 / 1.40.
+
+**Fixed working aircraft factor:** 2 ÷ [1 + 10^((845 − 830)/400)] = **0.96** displayed. Calculations use the unrounded factor **0.9568533338977091**; final score rounded once to the nearest whole point.
+
+**Weapon identity and historical fit:** Use M61 **AAM-018**, AIM-7F **AAM-069**, AIM-9L **AAM-043**, AIM-120C **AAM-080**. AAM-080 has source multiplier **0.715**, shown as **0.72** for readers. These are alternative weapons credited with a kill and **need not all be simultaneously mounted**. The mixed older Sidewinder/Sparrow and later AMRAAM choices are supported by the DCS Lot 20 module, but do not establish an identical historical in-service introduction date for all weapons.
+
+### Annex E.1 — Weapon factors: human F/A-18C against Su-27 AI
+
+#### Table 33 — F/A-18C weapon multipliers and relative factors against Su-27
+
+| Credited F/A-18C weapon | AAM ID | Global catalogue multiplier | Relative weapon factor |
+| --- | --- | ---: | ---: |
+| M61 20 mm cannon | AAM-018 | 1.20 | 1.16 |
+| AIM-7F Sparrow | AAM-069 | 1.12 | 1.12 |
+| AIM-9L Sidewinder | AAM-043 | 1.00 | 1.06 |
+| AIM-120C AMRAAM | AAM-080 | 0.72 | 0.92 |
+
+The global weapon multiplier never depends on which aircraft carries the weapon. The relative factor is **1 + 0.50 × (M_used − 0.880)**, calculated at source precision.
+
+### Annex E.2 — Awarded points at each AI skill
+
+#### Table 34 — F/A-18C human kills Su-27 AI, all five levels
+
+| Credited F/A-18C weapon | Cadet | Rookie | Trained | Veteran | Ace |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| M61 20 mm cannon | 67 | 89 | 111 | 133 | 155 |
+| AIM-7F Sparrow | 64 | 86 | 107 | 129 | 150 |
+| AIM-9L Sidewinder | 61 | 81 | 101 | 122 | 142 |
+| AIM-120C AMRAAM | 53 | 70 | 88 | 105 | 123 |
+
+**Acceptance checks (provisional rating 845 only):** for a Trained Su-27 AI, cannon **111**, AIM-7F **107**, AIM-9L **101** and AIM-120C **88**. In this model, scoring a cannon kill is more rewarding than an AMRAAM kill against the same aircraft and AI skill. Do not round the 0.715 source multiplier to 0.72 before calculating.
+
+**Avionics cross-check:** the later Hornet's radar, electronic-warfare integration, situational awareness and AMRAAM support warrant a configuration-specific review. The proposed 845 value must be tested against the existing F-15C late AMRAAM 850, F-16C Block 50/52 875, early F/A-18C 800 and Su-27 baseline 830 before programmer acceptance. Until then, this annex is useful as an algorithm test and not as an approved 199-aircraft catalogue calibration.
+
+**DCS equipment references:** Eagle Dynamics F/A-18C Early Access Guide — https://www.digitalcombatsimulator.com/upload/iblock/8d7/2s3e89jqknz7xmti8hrhe1bjt2uw1s3e/DCS%20FA-18C%20Early%20Access%20Guide%20EN.pdf ; module weapons list — https://wiki.hoggitworld.com/view/F/A-18C ; Eagle Dynamics Su-27 Flaming Cliffs Flight Manual — https://www.digitalcombatsimulator.com/upload/iblock/ed7/Su-27%20DCS%20Flaming%20Cliffs%20Flight%20Manual%20EN.pdf .
+
 ## 9. Version 0.4 changes, avionics review and remaining decisions
 
 ### 9.1 — Amendments accepted in v0.4
