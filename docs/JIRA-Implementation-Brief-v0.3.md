@@ -1,8 +1,8 @@
 # DCS 3.0 — Player vs AI Air-to-Air Scoring
 
 > Snapshot of [the live JIRA implementation brief](https://docs.google.com/document/d/1PzCKKs0nBholQecxu-0vyKEeAWORqKzvBH5lbXl2JsY/edit) on 9 November 2026.
-> **Source of truth:** The linked Google Doc and Sheets. This GitHub file is an editable review snapshot, not an automatic live synchronisation.
-> **Presentation convention:** Table factors and multipliers are rounded to at most two decimal places; calculate from full-precision source data and round the final awarded points only once to an integer.
+> **Source of truth:** The linked Google Doc and Sheets. This GitHub file is an editable review snapshot, not an automatically synchronised copy.
+> **Presentation:** Tables show no more than two decimal places for numeric factors; all final kill points are integers. Computations use full-precision source values and a single final rounding step.
 
 ## DCS 3.0 — Air-to-Air Kill Scoring
 
@@ -224,7 +224,7 @@ Table 13 shows the aircraft and weapon choices, including the separately calcula
 
 #### Table 13 — Complete scoring across three eras
 
-|   | WWII | Cold War | Modern |
+|  | WWII | Cold War | Modern |
 | --- | --- | --- | --- |
 | Player aircraft | Spitfire IX | MiG-21bis | Su-27 |
 | Player aircraft rating | 417 | 710 | 830 |
@@ -249,7 +249,7 @@ Purpose: reverse the original player and AI aircraft in all five examples. Keep 
 
 #### Table 14 — Within-era reversed match-ups
 
-|   | WWII | Cold War | Modern |
+|  | WWII | Cold War | Modern |
 | --- | --- | --- | --- |
 | Player aircraft | Bf 109K-4 | F-4E late | F-16C Block 50/52 |
 | Player aircraft rating | 424 | 740 | 875 |
@@ -358,7 +358,7 @@ Decision: unarmed and defensive-only fallback uses the player's best weapon; all
 
 ## 8. Annexes — Era-by-era scoring acceptance tests
 
-Planned sequence: Annex A — World War II; Annex B — Korea; Annex C — Early Cold War; Annex D — Late Cold War; Annex E — Early Modern; Annex F — Modern. Each annex will compare representative aircraft in both player-versus-AI directions across all five AI skill levels. Annex A covers Spitfire IX versus Bf 109K-4; Annex B covers F-86F versus MiG-15bis and P-51D versus MiG-15bis. Annexes C–F remain to be selected.
+Planned sequence: Annex A — World War II; Annex B — Korea; Annex C — Vietnam War (Early Cold War); Annex D — Late Cold War; Annex E — Early Modern; Annex F — Modern. Each annex tests representative aircraft, weapon choices and the five AI skill levels. Annex A covers Spitfire IX versus Bf 109K-4; Annex B covers F-86F and P-51D versus MiG-15bis; Annex C covers all seven catalogue-listed Vietnam-era F-4E air-to-air weapons against MiG-21bis. Annexes D–F remain to be selected.
 
 ### Annex A — World War II: Spitfire IX versus Bf 109K-4
 
@@ -394,7 +394,7 @@ Fixed inputs: Human player Bf 109K-4 (aircraft rating 424), using MK 108 30 mm c
 
 Acceptance test: Spitfire IX human scores Cadet 58, Rookie 78, Trained 97, Veteran 116, Ace 136 points. Bf 109K-4 human scores Cadet 62, Rookie 82, Trained 103, Veteran 123, Ace 144 points. The five skill multipliers apply to the destroyed AI only; weapon/aircraft factors remain constant within each direction. No separate era or human-skill multiplier is permitted.
 
-Status: Annex A is proposed for programmer acceptance testing under the v0.3 relative-weapon model. Aircraft ratings and catalogue weapon factors are unchanged; Annex B follows below and Annexes C–F remain unpopulated.
+Status: Annex A is proposed for programmer acceptance testing under the v0.3 relative-weapon model. Aircraft ratings and catalogue weapon factors are unchanged; Annexes B and C follow below, while Annexes D–F remain unpopulated.
 
 ### Annex B — Korea: F-86F Sabre, MiG-15bis and P-51D Mustang
 
@@ -460,4 +460,52 @@ Fixed inputs: player MiG-15bis (rating 605) uses NR-23 (AAM-015; multiplier 1.37
 
 Acceptance tests, listed Cadet / Rookie / Trained / Veteran / Ace: F-86F → MiG-15bis: 62 / 83 / 103 / 124 / 145; MiG-15bis → F-86F: 58 / 77 / 96 / 116 / 135; P-51D → MiG-15bis: 95 / 127 / 158 / 190 / 222; MiG-15bis → P-51D: 28 / 37 / 47 / 56 / 65. Keep the aircraft and relative weapon factors constant within each direction, use the full-precision formula, and round only at the end.
 
-Status: Annex B is a proposed Korea-era programmer acceptance test under the v0.3 relative-weapon model. Annexes A and the main specification remain unchanged. The Sabre .50-calibre gun mapping is provisional, as described above; Annexes C–F remain unpopulated.
+Status: Annex B is a proposed Korea-era programmer acceptance test under the v0.3 relative-weapon model. Annexes A and the main specification remain unchanged. The Sabre .50-calibre gun mapping is provisional, as described above. Annex C follows below; Annexes D–F remain unpopulated.
+
+### Annex C — Vietnam War (Early Cold War): F-4E versus MiG-21bis
+
+Scope: calculate a human F-4E Phantom II using all seven Vietnam-era air-to-air weapons represented in Weapons Catalogue v1.0 against a MiG-21bis AI at each of the five skill levels. The comparison concerns a credited air-to-air kill only; bombs, unguided rockets, air-to-ground missiles and weapon combinations do not count as separate A2A kill weapons.
+
+Historical qualification: use the existing catalogue aircraft F-4E late (rating 740) and MiG-21bis (rating 710) as a deliberately standardised model matchup. The MiG-21bis and its R-60M best-weapon reference are later than the MiG-21PF/PFM/MF equipment characteristic of North Vietnamese combat; these are acceptance-test inputs, NOT a claim of a historically exact Vietnam engagement. The F-4E aircraft rating and its later AIM-7M best-weapon field are not a reason to permit postwar missiles in this Vietnam-era test.
+
+Weapon selection: the F-4E's internal M61 cannon; AIM-4D Falcon (compatible, of limited/uncertain combat use on F-4E in Vietnam); AIM-9B, AIM-9E and AIM-9J Sidewinders; AIM-7D and AIM-7E Sparrows. The AIM-9J belongs to the late war. AIM-7E-2 is an improved AIM-7E family variant without its own v1.0 catalogue record, so AIM-7E is used as the provisional family scoring entry rather than inventing an eighth multiplier. Exclude later AIM-7F/M, AIM-9L/M and AIM-9P from this 1968–1973 scope.
+
+#### Annex C.1 — Fixed inputs and relative weapon factors
+
+Player aircraft: F-4E late (rating 740). AI target: MiG-21bis (rating 710), whose catalogue best weapon is R-60M (AAM-045, source multiplier 1.040). AI pilot skill varies: Cadet 0.60, Rookie 0.80, Trained 1.00, Veteran 1.20, Ace 1.40. Aircraft factor = 0.9138670159555764 internally (0.91 displayed). For each weapon, relative factor = 1 + 0.50 × (weapon source multiplier − 1.040). Tables display two decimals but calculations use unrounded catalogue values.
+
+#### Table 26 — Annex C.1: F-4E Vietnam-era weapons and relative factors
+
+| F-4E weapon | Weapon ID | Catalogue multiplier | Relative weapon factor |
+| --- | --- | --- | --- |
+| M61 Vulcan | AAM-018 | 1.20 | 1.08 |
+| AIM-4D Falcon | AAM-037 | 1.83 | 1.39 |
+| AIM-9B Sidewinder | AAM-032 | 1.59 | 1.28 |
+| AIM-9E Sidewinder | AAM-034 | 1.43 | 1.19 |
+| AIM-9J Sidewinder | AAM-038 | 1.28 | 1.12 |
+| AIM-7D Sparrow | AAM-062 | 1.46 | 1.21 |
+| AIM-7E Sparrow | AAM-063 | 1.41 | 1.19 |
+
+#### Annex C.2 — Awarded points by AI pilot level
+
+Each row holds the player aircraft, target aircraft and weapon fixed, changing only the destroyed MiG-21bis AI pilot's skill. Points are whole numbers computed using 100 × AI skill × full-precision aircraft factor × full-precision relative weapon factor, then rounded once at the end. Columns in the table display no more than two decimal places.
+
+#### Table 27 — Annex C.2: F-4E human kills MiG-21bis AI, all weapons
+
+| F-4E weapon | Cadet | Rookie | Trained | Veteran | Ace |
+| --- | --- | --- | --- | --- | --- |
+| M61 Vulcan | 59 | 79 | 99 | 118 | 138 |
+| AIM-4D Falcon | 76 | 102 | 127 | 153 | 178 |
+| AIM-9B Sidewinder | 70 | 93 | 117 | 140 | 163 |
+| AIM-9E Sidewinder | 65 | 87 | 109 | 131 | 153 |
+| AIM-9J Sidewinder | 61 | 82 | 102 | 123 | 143 |
+| AIM-7D Sparrow | 66 | 88 | 111 | 133 | 155 |
+| AIM-7E Sparrow | 65 | 87 | 108 | 130 | 152 |
+
+Acceptance-test interpretation: the gun earns 99 points against Trained AI; AIM-7E earns 108; AIM-4D earns 127. The AIM-4D has the highest points because the catalogue rates it as the more difficult weapon, not because it is superior in combat. These awards are conditional on an actual recorded kill and do not imply equal probability of achieving that kill with every weapon.
+
+Weapon-fit note: historical compatibility does not guarantee carriage in the particular DCS mission or module build. Use the actual weapon ID credited by DCS and validate the specific F-4E block and loadout. AIM-4D was technically compatible with F-4E but its Vietnam combat use was limited/uncertain; optional testing may be disabled by a historically constrained mission profile.
+
+Historical source checks: USAF F-4E internal cannon — https://www.163atkw.ang.af.mil/About-Us/Fact-Sheets/Display/Article/452913/mcdonnell-douglas-f-4e-phantom-ii/ ; Vietnam-era F-4E illustrative loads — https://www.cybermodeler.com/aircraft/f-4/f-4e_loads.shtml ; AIM-4D compatibility — https://www.ausairpower.net/Falcon-Evolution.html ; Vietnamese 1972 MiG-21PFM service — https://vietnam.warbirdsresourcegroup.org/mig21_history_vietnam.html . These are historical cross-checks; scoring numbers come from the two project catalogues.
+
+Status: Annex C is a Vietnam-era equipment comparison using existing F-4E late and MiG-21bis catalogue ratings, for v0.3 programmer acceptance review. Annexes A and B and the main specification remain unchanged. Future Annexes D–F remain unpopulated.
