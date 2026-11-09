@@ -4,6 +4,8 @@
 > **Source of truth:** The linked Google Doc and Sheets. This GitHub file is an editable review snapshot, not an automatically synchronised copy.
 > **Presentation:** Tables show no more than two decimal places for numeric factors; all final kill points are integers. Computations use full-precision source values and a single final rounding step.
 
+> **Document presentation (v0.4 editorial standard):** Arial 11 pt throughout body, headings and table cells. Bold only for the document title, section/subsection headings and table header rows. Use restrained grey table-header shading. Printable Word copy has centred automatic page numbering. The native Google Doc uses the same typography; page numbering must be inserted using the Google Docs editor because the connected API does not expose auto-page-number creation.
+
 ## DCS 3.0 — Air-to-Air Kill Scoring
 
 *Player vs AI | JIRA implementation brief | Review v0.4 — 9 November 2026*
@@ -133,7 +135,7 @@ Keep every variable unchanged except AI skill. In this identical-aircraft/identi
 
 Acceptance expectation: Cadet 60, Rookie 80, Trained 100, Veteran 120 and Ace 140 points. Only AI skill changes; both aircraft and relative weapon factors remain 1.000.
 
-## 6. Proposed sequence for the rest of the JIRA specification
+## 6. Scoring acceptance tests and implementation checks
 
 Baseline test: identical aircraft, identical weapon, five AI levels (Section 5).
 
@@ -312,7 +314,7 @@ Reference-only calculation: catalogue index = 100 × catalogue scoring multiplie
 
 #### Table 17 — Weapon comparison: modern missile options
 
-The same catalogue-only reference convention applies. AIM-9L remains the 1.000 raw catalogue reference; this is not a claim that all modern kills earn fewer points than WWII kills.
+The same catalogue-only reference convention applies. AIM-9L remains the 1.00 raw catalogue reference; this is not a claim that all modern kills earn fewer points than WWII kills.
 
 | Weapon used | Weapon ID | Scoring multiplier | Catalogue index (NOT kill points) |
 | --- | --- | --- | --- |
@@ -327,7 +329,7 @@ Implementation interpretation: the current Weapons Catalogue v1.1 defines the ca
 
 Decision: catalogue comparison values are retained for reference, but were never intended as awarded kill points. Final v0.4 kill awards use the approved relative comparison principle; acceptance scores remain for review.
 
-### 6.4.3 — Unarmed and defensive-only AI targets (NEW ACCEPTANCE TEST)
+### 6.4.3 — Unarmed and defensive-only AI targets (acceptance tests)
 
 An unarmed target has no best offensive weapon to compare. For both unarmed and defensive-only AI targets, set M_reference to the lowest multiplier among the attacking player's actually equipped eligible offensive A2A weapons instead. This preserves the value of the AI's aircraft rating and skill, while offering an extra reward for using a less effective weapon than the player's best. Defensive turret weapons are not treated as offensive fighter armament under this rule.
 
