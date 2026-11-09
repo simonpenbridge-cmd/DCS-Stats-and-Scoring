@@ -20,7 +20,7 @@ The Weapons Catalogue v1.0 **scoring multiplier** already incorporates 50% compr
 
 ## Current documents
 
-- [Complete JIRA implementation brief v0.3, Tables 1–25 and Annexes A–B](docs/JIRA-Implementation-Brief-v0.3.md)
+- [Complete JIRA implementation brief v0.3, Tables 1–27 and Annexes A–C](docs/JIRA-Implementation-Brief-v0.3.md)
 - [Aircraft A2A Ratings V7.0 snapshot — 199 aircraft, including best-weapon mappings](data/aircraft-a2a-ratings-v7.csv)
 - [A2A Weapons Catalogue v1.0 snapshot — 101 weapon entries](data/weapons-catalogue-v1.csv)
 
@@ -34,7 +34,8 @@ The Weapons Catalogue v1.0 **scoring multiplier** already incorporates 50% compr
 
 - **Annex A — World War II:** Spitfire IX vs Bf 109K-4, both directions (Tables 20–21).
 - **Annex B — Korea:** F-86F Sabre vs MiG-15bis, both directions; P-51D Mustang vs MiG-15bis, both directions (Tables 22–25).
-- **Annexes C–F planned:** Early Cold War, Late Cold War, Early Modern and Modern.
+- **Annex C — Vietnam War (Early Cold War):** F-4E using seven Vietnam-era air-to-air weapons against MiG-21bis AI at all five levels (Tables 26–27). The MiG-21bis is a standardised model opponent, not a claim of exact historical North Vietnamese equipment.
+- **Annexes D–F planned:** Late Cold War, Early Modern and Modern.
 
 The v0.3 specification includes test cases for unarmed F-111F and defensive-only targets. Actual aircraft and weapon catalogue mappings are **provisional** and may be variant/loadout dependent. The 199-aircraft snapshot currently contains 141 selected catalogue IDs, seven uncatalogued weapons, 36 unarmed aircraft and 15 defensive-only cases.
 
