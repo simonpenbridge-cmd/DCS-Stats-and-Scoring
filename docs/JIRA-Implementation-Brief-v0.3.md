@@ -508,4 +508,70 @@ Weapon-fit note: historical compatibility does not guarantee carriage in the par
 
 Historical source checks: USAF F-4E internal cannon — https://www.163atkw.ang.af.mil/About-Us/Fact-Sheets/Display/Article/452913/mcdonnell-douglas-f-4e-phantom-ii/ ; Vietnam-era F-4E illustrative loads — https://www.cybermodeler.com/aircraft/f-4/f-4e_loads.shtml ; AIM-4D compatibility — https://www.ausairpower.net/Falcon-Evolution.html ; Vietnamese 1972 MiG-21PFM service — https://vietnam.warbirdsresourcegroup.org/mig21_history_vietnam.html . These are historical cross-checks; scoring numbers come from the two project catalogues.
 
-Status: Annex C is a Vietnam-era equipment comparison using existing F-4E late and MiG-21bis catalogue ratings, for v0.3 programmer acceptance review. Annexes A and B and the main specification remain unchanged. Future Annexes D–F remain unpopulated.
+Status: Annex C is a Vietnam-era equipment comparison using existing F-4E late and MiG-21bis catalogue ratings, for v0.3 programmer acceptance review. Annexes A and B and the main specification remain unchanged. Annex D follows; Annexes E–F remain unpopulated.
+
+## Annex D — Late Cold War (mid-1980s): F-14A and F-16A versus MiG-29A
+
+Scope: test human F-14A Tomcat and original F-16A Block 15 (infrared-only) against a mid-1980s MiG-29A Fulcrum 9.12 AI at Cadet, Rookie, Trained, Veteran and Ace. One table per player aircraft lists all selected period-appropriate weapons, followed by the scored awards across five AI skills. This is a model acceptance comparison, not a claim that every period loadout was fitted to one mission.
+
+Aircraft and catalogue qualification: A2A V7.0 has F-14A 790 and MiG-29 early 760. The aircraft snapshot does **not** contain a separate F-16A row. The earlier Cold War scoring discussions used **F-16A (IR-only) 780**; that number is carried into this annex as a **provisional legacy rating pending formal addition to V7.0**, rather than silently borrowing F-16C early 805. The ADF/Sparrow-equipped F-16A (earlier model figure 795) is excluded. The MiG-29 AI best weapon is **R-73 Archer (AAM-052, catalogue multiplier 0.880)**, following the selected BEST A2A WEAPON (CATALOGUE ID) field. Its R-27R is not substituted as the reference just because the aircraft also carries BVR missiles.
+
+Method: ROUND[100 × AI skill factor × aircraft factor × {1 + 0.50 × (catalogue multiplier of credited player weapon − 0.880)}]. Source precision is retained internally; displayed weapon and aircraft factors use **no more than two decimal places**, final points are integers. Human player rank does not enter this PvAI calculation.
+
+### Annex D.1 — Human F-14A Tomcat kills MiG-29A AI
+
+Fixed inputs: player F-14A, rating 790; AI MiG-29A, rating 760, best weapon R-73 (AAM-052, 0.880). Aircraft factor 0.9138670159555764 (display **0.91**). Available selection: M61, AIM-9L/M, AIM-7F/M, AIM-54A/C. These are **alternative credited kill weapons**, not an assertion they must all be carried simultaneously. AIM-54C is a later mid-1980s alternative: NAVAIR notes 1985 fleet deployment while a US Navy training plan records formal IOC in December 1986. If a mission is tightly set before C availability, use AIM-54A and omit that row.
+
+#### Table 28 — Annex D.1: F-14A weapon factors against MiG-29A
+
+| F-14A weapon | Weapon ID | Catalogue multiplier | Relative weapon factor |
+| --- | --- | ---: | ---: |
+| M61 Vulcan 20 mm | AAM-018 | 1.20 | 1.16 |
+| AIM-9L Sidewinder | AAM-043 | 1.00 | 1.06 |
+| AIM-9M Sidewinder | AAM-044 | 0.94 | 1.03 |
+| AIM-7F Sparrow | AAM-069 | 1.12 | 1.12 |
+| AIM-7M Sparrow | AAM-070 | 1.05 | 1.08 |
+| AIM-54A Phoenix | AAM-076 | 1.18 | 1.15 |
+| AIM-54C Phoenix (later fit) | AAM-077 | 1.09 | 1.10 |
+
+#### Table 29 — Annex D.1: F-14A human kills MiG-29A AI; points
+
+| Credited F-14A weapon | Cadet | Rookie | Trained | Veteran | Ace |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| M61 Vulcan | 64 | 85 | 106 | 127 | 148 |
+| AIM-9L Sidewinder | 58 | 77 | 97 | 116 | 136 |
+| AIM-9M Sidewinder | 56 | 75 | 94 | 113 | 132 |
+| AIM-7F Sparrow | 61 | 82 | 102 | 123 | 143 |
+| AIM-7M Sparrow | 59 | 79 | 99 | 119 | 138 |
+| AIM-54A Phoenix | 63 | 84 | 105 | 126 | 147 |
+| AIM-54C Phoenix (later fit) | 60 | 81 | 101 | 121 | 141 |
+
+### Annex D.2 — Human F-16A Block 15 kills MiG-29A AI
+
+Fixed inputs: player F-16A Block 15, original non-ADF infrared-only fit, **provisional aircraft rating 780** based on the earlier scoring project discussion; AI MiG-29A rating 760, best R-73 (AAM-052, 0.880). Aircraft factor 0.9424988722154628 (display **0.94**). Period-appropriate player weapon alternatives: M61, AIM-9L and AIM-9M. Do not add AIM-7 Sparrow, AIM-120 AMRAAM, or F-16A ADF/MLU equipment to this baseline.
+
+#### Table 30 — Annex D.2: F-16A weapon factors against MiG-29A
+
+| F-16A weapon | Weapon ID | Catalogue multiplier | Relative weapon factor |
+| --- | --- | ---: | ---: |
+| M61 Vulcan 20 mm | AAM-018 | 1.20 | 1.16 |
+| AIM-9L Sidewinder | AAM-043 | 1.00 | 1.06 |
+| AIM-9M Sidewinder | AAM-044 | 0.94 | 1.03 |
+
+#### Table 31 — Annex D.2: F-16A human kills MiG-29A AI; points
+
+| Credited F-16A weapon | Cadet | Rookie | Trained | Veteran | Ace |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| M61 Vulcan | 66 | 87 | 109 | 131 | 153 |
+| AIM-9L Sidewinder | 60 | 80 | 100 | 120 | 140 |
+| AIM-9M Sidewinder | 58 | 78 | 97 | 116 | 136 |
+
+Acceptance tests, listed Cadet / Rookie / Trained / Veteran / Ace:
+- F-14A M61: **64 / 85 / 106 / 127 / 148**; F-14A AIM-54A: **63 / 84 / 105 / 126 / 147**; F-14A AIM-54C: **60 / 81 / 101 / 121 / 141**.
+- F-16A M61: **66 / 87 / 109 / 131 / 153**; F-16A AIM-9L: **60 / 80 / 100 / 120 / 140**; F-16A AIM-9M: **58 / 78 / 97 / 116 / 136**.
+
+Implementation notes: import/confirm the original F-16A IR-only 780 entry into the aircraft catalogue before treating the F-16A cases as production acceptance tests; track exact year, country, flight model and available DCS loadouts. Do not override the selected MiG-29 best-weapon reference or round intermediate multipliers. Earlier Annexes A–C and Tables 1–27 remain unchanged. Annexes E–F remain planned.
+
+Historical source checks: F-16A initial service and 1981 growth provisions — https://www.af.mil/News/Article/104505/f-16-fighting-falcon/ ; 1980s F-16A with AIM-9L — https://www.airandspaceforces.com/app/uploads/1994/10/1094_Oct1994.pdf ; US Navy Phoenix dates — https://www.navair.navy.mil/node/12701 ; US Navy training plan (AIM-54C formal IOC December 1986) — https://www.globalsecurity.org/military/library/policy/navy/ntsp/aim54.htm .
+
+Status: Annex D is a proposed late-Cold-War programmer acceptance test under the v0.3 relative-weapon model, with the F-16A rating explicitly provisional until brought into the aircraft-rating catalogue.
