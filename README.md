@@ -20,7 +20,7 @@ The Weapons Catalogue v1.1 **scoring multiplier** already incorporates 50% compr
 
 ## Current documents
 
-- [Complete JIRA implementation brief v0.4, Tables 1–34 and Annexes A–E](docs/JIRA-Implementation-Brief-v0.4.md)
+- [Complete JIRA implementation brief v0.4, Tables 1–38 and Annexes A–F](docs/JIRA-Implementation-Brief-v0.4.md)
 - [Archived JIRA implementation brief v0.3, Tables 1–31](docs/JIRA-Implementation-Brief-v0.3.md)
 - [Aircraft A2A Ratings V7.0 snapshot — 199 aircraft, including best-weapon mappings](data/aircraft-a2a-ratings-v7.csv)
 - [A2A Weapons Catalogue v1.1 snapshot — 101 weapon entries, revised Phoenix](data/weapons-catalogue-v1.1.csv)
@@ -41,7 +41,7 @@ The Weapons Catalogue v1.1 **scoring multiplier** already incorporates 50% compr
 - **Annex C — Vietnam War (Early Cold War):** F-4E using seven Vietnam-era air-to-air weapons against MiG-21bis AI at all five levels (Tables 26–27). The MiG-21bis is a standardised model opponent, not a claim of exact historical North Vietnamese equipment.
 - **Annex D — Late Cold War:** F-14A Tomcat and infrared-only F-16A Block 15 against MiG-29A (Tables 28–31) plus F-14A actual-loadout reference selection (Table 32). F-16A 780 is an earlier project rating, provisionally carried over and pending addition to the V7.0 aircraft catalogue; AIM-54C is a later mid-1980s alternative.
 - **Annex E — Early Modern:** Human F/A-18C Lot 20 using M61, AIM-7F, AIM-9L and AIM-120C against Su-27 AI, all five difficulty levels (Tables 33–34). Provisional late-Hornet rating 845 is an annex-only test assumption; Aircraft V7.0 still contains only F/A-18C early 800.
-- **Annex F planned:** Modern.
+- **Annex F — Modern:** F/A-18C Lot 20 vs Su-27, both human-player directions; weapon tables and five AI levels (Tables 35–38). Hornet rating 845 remains provisional; target reference weapon is loadout-sensitive.
 
 The v0.4 specification includes test cases for unarmed F-111F and defensive-only targets. Actual aircraft and weapon catalogue mappings are **provisional** and may be variant/loadout dependent. The 199-aircraft snapshot currently contains 141 selected catalogue IDs, seven uncatalogued weapons, 36 unarmed aircraft and 15 defensive-only cases.
 
