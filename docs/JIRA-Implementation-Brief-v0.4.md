@@ -739,3 +739,84 @@ Su-27 player 830; F/A-18C Lot 20 AI 845 (provisional). The AI F/A-18C is specifi
 **Acceptance tests:** F/A-18C player versus Trained Su-27 AI: M61 20 mm 111; AIM-7F 107; AIM-9L 101; AIM-120C 88. Su-27 player versus Trained F/A-18C AI: GSh-30-1 30 mm 132; R-73 113; R-27R 128; R-27ER 125; R-27T 125; R-27ET 120. Source-precision multipliers include AIM-120C 0.715 and R-27ET 1.025. Each scored weapon is an alternative credited kill weapon, not a claim of simultaneous carriage. No pilot-vs-pilot scoring or era bonus is introduced.
 
 **Outstanding approval:** validate provisional Hornet rating 845 in the aircraft-avionics audit before treating this as a production-calibrated aircraft comparison. Existing Annexes A–E and Tables 1–34 remain unchanged.
+
+
+## Annex G — Contemporary (2020s): F-22A, Su-57, F-16C Block 70
+
+**Status: provisional algorithm acceptance cases, not empirically verified real-world combat outcomes.** Aircraft V7.0 supplies F-22A **955** and Su-57 **930**. No F-16C Block 70 entry exists: **900 is an analyst-proposed, annex-only test rating** (existing F-16C Block 50/52 is 875), pending formal avionics/platform approval and inclusion in V7.0. No aircraft-rating catalogue changes are made here.
+
+**Formula:** ROUND[100 × destroyed AI skill factor × 2/(1+10^((player rating−AI rating)/400)) × (1+0.50×(credited weapon catalogue multiplier−AI lowest-multiplier eligible offensive A2A weapon *actually carried*))]. Skill: Cadet 0.60, Rookie 0.80, Trained 1.00, Veteran 1.20, Ace 1.40. Full source precision; two-decimal factor display, whole final kill points; no era or PvP modifier.
+
+**Fit qualification:** F-22 and Su-57 rows in Aircraft V7.0 refer to third-party community DCS mods, not official full-fidelity playable DCS modules. The Su-57's current real-world weapon fit and mod implementation are not independently certified here. Su-57 R-73 is a *catalogued illustrative proxy* only, not proof that current operational Su-57 integrates that exact variant. R-77-1 is assumed actually loaded on Su-57 AI in cases G.1 and G.3. F-22 AI in G.2 actually carries AIM-120D. The weapon alternatives listed are not guaranteed simultaneous loads; every example requires confirmation against mission-configured equipment.
+
+### Annex G.1 — Human F-22A kills Su-57 AI
+
+Player rating 955; AI rating 930; aircraft factor **0.93** displayed (unrounded 0.9281681461097954). AI target reference **R-77-1 (AAM-083)**, catalogue multiplier **0.81**. Reference remains conditional on actual target loadout.
+
+#### Table 39 — F-22A weapon multipliers against Su-57 AI
+
+| Credited weapon | Catalogue ID | Global multiplier | Relative weapon factor |
+| --- | --- | ---: | ---: |
+| M61A2 20 mm cannon | AAM-018 | 1.20 | 1.19 |
+| AIM-9X Block I | AAM-054 | 0.81 | 1.00 |
+| AIM-120D | AAM-081 | 0.68 | 0.93 |
+
+#### Table 40 — F-22A human kills Su-57 AI: kill points
+
+| Credited weapon | Cadet | Rookie | Trained | Veteran | Ace |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| M61A2 20 mm cannon | 67 | 89 | 111 | 133 | 155 |
+| AIM-9X Block I | 56 | 74 | 93 | 111 | 130 |
+| AIM-120D | 52 | 69 | 87 | 104 | 121 |
+
+**Acceptance check, Trained AI:** M61A2 20 mm cannon 111; AIM-9X Block I 93; AIM-120D 87.
+
+### Annex G.2 — Human Su-57 kills F-22A AI
+
+Player rating 930; AI rating 955; aircraft factor **1.07** displayed (unrounded 1.0718318538902045). AI target reference **AIM-120D (AAM-081)**, catalogue multiplier **0.68** (source 0.675). Reference remains conditional on actual target loadout.
+
+#### Table 41 — Su-57 weapon multipliers against F-22A AI
+
+| Credited weapon | Catalogue ID | Global multiplier | Relative weapon factor |
+| --- | --- | ---: | ---: |
+| GSh-30-1 30 mm | AAM-024 | 1.25 | 1.29 |
+| R-73 (catalogued proxy) | AAM-052 | 0.88 | 1.10 |
+| R-77-1 | AAM-083 | 0.81 | 1.07 |
+
+#### Table 42 — Su-57 human kills F-22A AI: kill points
+
+| Credited weapon | Cadet | Rookie | Trained | Veteran | Ace |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| GSh-30-1 30 mm | 83 | 110 | 138 | 166 | 193 |
+| R-73 (catalogued proxy) | 71 | 95 | 118 | 142 | 165 |
+| R-77-1 | 69 | 92 | 114 | 137 | 160 |
+
+**Acceptance check, Trained AI:** GSh-30-1 30 mm 138; R-73 (catalogued proxy) 118; R-77-1 114.
+
+### Annex G.3 — Human F-16C Block 70 kills Su-57 AI
+
+Player rating 900; AI rating 930; aircraft factor **1.09** displayed (unrounded 1.0861329840444238). AI target reference **R-77-1 (AAM-083)**, catalogue multiplier **0.81**. Reference remains conditional on actual target loadout.
+
+#### Table 43 — F-16C Block 70 weapon multipliers against Su-57 AI
+
+| Credited weapon | Catalogue ID | Global multiplier | Relative weapon factor |
+| --- | --- | ---: | ---: |
+| M61 20 mm cannon | AAM-018 | 1.20 | 1.19 |
+| AIM-9X Block II | AAM-055 | 0.78 | 0.98 |
+| AIM-120C | AAM-080 | 0.71 | 0.95 |
+
+#### Table 44 — F-16C Block 70 human kills Su-57 AI: kill points
+
+| Credited weapon | Cadet | Rookie | Trained | Veteran | Ace |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| M61 20 mm cannon | 78 | 104 | 130 | 156 | 182 |
+| AIM-9X Block II | 64 | 86 | 107 | 128 | 150 |
+| AIM-120C | 62 | 83 | 103 | 124 | 145 |
+
+**Acceptance check, Trained AI:** M61 20 mm cannon 130; AIM-9X Block II 107; AIM-120C 103.
+
+**Cross-case interpretation:** G.1 and G.3 use the same Su-57 AI and R-77-1 reference, isolating aircraft and player-weapon differences between F-22A and proposed F-16 Block 70. G.2 reverses the aircraft, selecting F-22A's actually loaded AIM-120D as the AI reference. Scores represent *points awarded on a successful kill*, not kill probability. An F-16 Block 70 winning despite lower aircraft rating can therefore earn more points than an F-22 win.
+
+**External capability checks:** F-22 AIM-120D/AIM-9X modernisation https://www.airandspaceforces.com/weapons/f-22/ ; F-16 Block 70 APG-83 AESA and avionics https://www.lockheedmartin.com/content/dam/lockheed-martin/aero/documents/F-16/25-00470_F-16%20Block70_72_Product%20Card_Jan%202025.pdf . These establish capability context, *not* proof of scoring rating 900 or of every weapon/mod integration.
+
+**Outstanding review:** approve a distinct Block 70 rating, verify Su-57 and F-16 Block 70 specific loadouts and mod data, and confirm F-22 AIM-9X variant per mission. Existing Annexes A–F, Tables 1–38, V7.0 ratings and Weapons Catalogue v1.1 remain untouched.
