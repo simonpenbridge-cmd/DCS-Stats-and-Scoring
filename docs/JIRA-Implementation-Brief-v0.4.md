@@ -198,7 +198,7 @@ Tables 9 and 10. Purpose: show how the score varies when the same F-4E (rating 7
 | --- | --- | --- | --- |
 | MiG-21bis; R-60M (1.04) | 710 | 0.91 × 1.19 | 108 |
 | F-4E late; AIM-7M (1.05) | 740 | 1.00 × 1.18 | 118 |
-| F-16C; AIM-120C (0.62) | 875 | 1.37 × 1.40 | 185 |
+| F-16C; AIM-120C (0.62) | 875 | 1.37 × 1.40 | 191 |
 
 Acceptance test: F-4E firing AIM-7E (catalogue multiplier 1.410) must earn 108 points against MiG-21bis (best R-60M, 1.040), 118 against F-4E late (best AIM-7M, 1.045), and 191 against F-16C Block 50/52 (best AIM-120C, 0.620). AI skill stays Trained (1.00). Aircraft and relative weapon factors are recalculated for each AI type; use final-only rounding.
 
@@ -374,7 +374,7 @@ Decision: unarmed and defensive-only fallback uses the player's best weapon; all
 
 ## 8. Annexes — Era-by-era scoring acceptance tests
 
-Planned sequence: Annex A — World War II; Annex B — Korea; Annex C — Vietnam War (Early Cold War); Annex D — Late Cold War; Annex E — Early Modern; Annex F — Modern. Each annex tests representative aircraft, weapon choices and the five AI skill levels. Annex A covers Spitfire IX versus Bf 109K-4; Annex B covers F-86F and P-51D versus MiG-15bis; Annex C covers all seven catalogue-listed Vietnam-era F-4E air-to-air weapons against MiG-21bis. Annex D is populated; Annexes E–F remain to be selected.
+Completed sequence: Annex A — World War II; Annex B — Korea; Annex C — Vietnam War (Early Cold War); Annex D — Late Cold War; Annex E — Early Modern; Annex F — Modern; Annex G — Contemporary. Each annex tests representative aircraft, weapon choices and the five AI skill levels. Annex A covers Spitfire IX versus Bf 109K-4; Annex B covers F-86F and P-51D versus MiG-15bis; Annex C covers all seven catalogue-listed Vietnam-era F-4E air-to-air weapons against MiG-21bis. Annexes A–G are populated; current modern weapon and provisional-aircraft assumptions are documented in Annexes E–G.
 
 ### Annex A — World War II: Spitfire IX versus Bf 109K-4
 
@@ -619,7 +619,7 @@ Interpretation: a more capable equipped enemy earns more points for an R-73 kill
 
 **Fixed working aircraft factor:** 2 ÷ [1 + 10^((845 − 830)/400)] = **0.96** displayed. Calculations use the unrounded factor **0.9568533338977091**; final score rounded once to the nearest whole point.
 
-**Weapon identity and historical fit:** Use M61 **AAM-018**, AIM-7F **AAM-069**, AIM-9L **AAM-043**, AIM-120C **AAM-080**. AAM-080 has source multiplier **0.620**, shown as **0.72** for readers. These are alternative weapons credited with a kill and **need not all be simultaneously mounted**. The mixed older Sidewinder/Sparrow and later AMRAAM choices are supported by the DCS Lot 20 module, but do not establish an identical historical in-service introduction date for all weapons.
+**Weapon identity and historical fit:** Use M61 **AAM-018**, AIM-7F **AAM-069**, AIM-9L **AAM-043**, AIM-120C **AAM-080**. AAM-080 has source multiplier **0.620**, shown as **0.62** for readers. These are alternative weapons credited with a kill and **need not all be simultaneously mounted**. The mixed older Sidewinder/Sparrow and later AMRAAM choices are supported by the DCS Lot 20 module, but do not establish an identical historical in-service introduction date for all weapons.
 
 ### Annex E.1 — Weapon factors: human F/A-18C against Su-27 AI
 
@@ -630,7 +630,7 @@ Interpretation: a more capable equipped enemy earns more points for an R-73 kill
 | M61 20 mm cannon | AAM-018 | 1.20 | 1.16 |
 | AIM-7F Sparrow | AAM-069 | 1.12 | 1.12 |
 | AIM-9L Sidewinder | AAM-043 | 1.00 | 1.06 |
-| AIM-120C AMRAAM | AAM-080 | .62 | 0.87 |
+| AIM-120C AMRAAM | AAM-080 | 0.62 | 0.87 |
 
 The global weapon multiplier never depends on which aircraft carries the weapon. The relative factor is **1 + 0.50 × (M_used − 0.880)**, calculated at source precision.
 
@@ -645,7 +645,7 @@ The global weapon multiplier never depends on which aircraft carries the weapon.
 | AIM-9L Sidewinder | 61 | 81 | 101 | 122 | 142 |
 | AIM-120C AMRAAM | 50 | 67 | 83 | 100 | 117 |
 
-**Acceptance checks (provisional rating 845 only):** for a Trained Su-27 AI, cannon **111**, AIM-7F **107**, AIM-9L **101** and AIM-120C **83**. In this model, scoring a cannon kill is more rewarding than an AMRAAM kill against the same aircraft and AI skill. Do not round the 0.620 source multiplier to 0.72 before calculating.
+**Acceptance checks (provisional rating 845 only):** for a Trained Su-27 AI, cannon **111**, AIM-7F **107**, AIM-9L **101** and AIM-120C **83**. In this model, scoring a cannon kill is more rewarding than an AMRAAM kill against the same aircraft and AI skill. Do not round the 0.620 source multiplier to 0.62 before calculating.
 
 **Avionics cross-check:** the later Hornet's radar, electronic-warfare integration, situational awareness and AMRAAM support warrant a configuration-specific review. The proposed 845 value must be tested against the existing F-15C late AMRAAM 850, F-16C Block 50/52 875, early F/A-18C 800 and Su-27 baseline 830 before programmer acceptance. Until then, this annex is useful as an algorithm test and not as an approved 199-aircraft catalogue calibration.
 
@@ -712,7 +712,7 @@ F/A-18C player 845 (provisional); Su-27 AI 830. The AI Su-27 is armed with R-73 
 
 ### Annex F.2 — Human Su-27 kills F/A-18C AI
 
-Su-27 player 830; F/A-18C Lot 20 AI 845 (provisional). The AI F/A-18C is specifically **armed with AIM-120C (AAM-080, source multiplier 0.620)**, which is the lowest-multiplier eligible offensive A2A weapon on its assumed loadout (M61, AIM-7F, AIM-9L and AIM-120C may be carried). AI reference is **0.620** (display **0.72**). Aircraft factor **1.04** displayed (unrounded 1.043146666102291). If the AI Hornet is not carrying AIM-120C, recompute its loadout-dependent reference; do not use a weapon it does not carry.
+Su-27 player 830; F/A-18C Lot 20 AI 845 (provisional). The AI F/A-18C is specifically **armed with AIM-120C (AAM-080, source multiplier 0.620)**, which is the lowest-multiplier eligible offensive A2A weapon on its assumed loadout (M61, AIM-7F, AIM-9L and AIM-120C may be carried). AI reference is **0.620** (display **0.62**). Aircraft factor **1.04** displayed (unrounded 1.043146666102291). If the AI Hornet is not carrying AIM-120C, recompute its loadout-dependent reference; do not use a weapon it does not carry.
 
 #### Table 37 — Su-27 weapon factors against F/A-18C AI
 
@@ -736,7 +736,7 @@ Su-27 player 830; F/A-18C Lot 20 AI 845 (provisional). The AI F/A-18C is specifi
 | R-27T | 78 | 104 | 130 | 156 | 182 |
 | R-27ET | 75 | 100 | 125 | 151 | 176 |
 
-**Acceptance tests:** F/A-18C player versus Trained Su-27 AI: M61 20 mm 111; AIM-7F 107; AIM-9L 101; AIM-120C 83. Su-27 player versus Trained F/A-18C AI: GSh-30-1 30 mm 132; R-73 113; R-27R 128; R-27ER 125; R-27T 125; R-27ET 125. Source-precision multipliers include AIM-120C 0.620 and R-27ET 1.025. Each scored weapon is an alternative credited kill weapon, not a claim of simultaneous carriage. No pilot-vs-pilot scoring or era bonus is introduced.
+**Acceptance tests:** F/A-18C player versus Trained Su-27 AI: M61 20 mm 111; AIM-7F 107; AIM-9L 101; AIM-120C 83. Su-27 player versus Trained F/A-18C AI: GSh-30-1 30 mm 137; R-73 118; R-27R 133; R-27ER 130; R-27T 130; R-27ET 125. Source-precision multipliers include AIM-120C 0.620 and R-27ET 1.025. Each scored weapon is an alternative credited kill weapon, not a claim of simultaneous carriage. No pilot-vs-pilot scoring or era bonus is introduced.
 
 **Outstanding approval:** validate provisional Hornet rating 845 in the aircraft-avionics audit before treating this as a production-calibrated aircraft comparison. Existing Annexes A–E and Tables 1–34 remain unchanged.
 
@@ -773,7 +773,7 @@ Player rating 955; AI rating 930; aircraft factor **0.93** displayed (unrounded 
 
 ### Annex G.2 — Human Su-57 kills F-22A AI
 
-Player rating 930; AI rating 955; aircraft factor **1.07** displayed (unrounded 1.0718318538902045). AI target reference **AIM-120D (AAM-081)**, catalogue multiplier **0.68** (source 0.580). Reference remains conditional on actual target loadout.
+Player rating 930; AI rating 955; aircraft factor **1.07** displayed (unrounded 1.0718318538902045). AI target reference **AIM-120D (AAM-081)**, catalogue multiplier **0.58**. Reference remains conditional on actual target loadout.
 
 #### Table 41 — Su-57 weapon multipliers against F-22A AI
 
@@ -819,7 +819,7 @@ Player rating 900; AI rating 930; aircraft factor **1.09** displayed (unrounded 
 
 **External capability checks:** F-22 AIM-120D/AIM-9X modernisation https://www.airandspaceforces.com/weapons/f-22/ ; F-16 Block 70 APG-83 AESA and avionics https://www.lockheedmartin.com/content/dam/lockheed-martin/aero/documents/F-16/25-00470_F-16%20Block70_72_Product%20Card_Jan%202025.pdf . These establish capability context, *not* proof of scoring rating 900 or of every weapon/mod integration.
 
-**Outstanding review:** approve a distinct Block 70 rating, verify Su-57 and F-16 Block 70 specific loadouts and mod data, and confirm F-22 AIM-9X variant per mission. Existing Annexes A–F, Tables 1–38, V7.0 ratings and Weapons Catalogue v1.1 remain untouched.
+**Outstanding review:** approve a distinct Block 70 rating, verify Su-57 and F-16 Block 70 specific loadouts and mod data, and confirm F-22 AIM-9X variant per mission. Existing aircraft ratings V7.0 remain unchanged. Annexes E–G and all earlier weapon-reference-dependent worked examples have been recalculated against the revised catalogue values.
 
 
 
