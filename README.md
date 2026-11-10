@@ -1,6 +1,6 @@
 # DCS 3.0 — Player vs AI Air-to-Air Scoring
 
-**Current working version: JIRA implementation brief v0.4, 9 November 2026; Weapons Catalogue v1.1.** This repository preserves the project's historical reasoning and a dated snapshot of the current technical specification. The linked Google Docs and Google Sheets are the **authoritative live working copies**, not automatically synchronised with GitHub.
+**Current working version: JIRA implementation brief v0.4, 9 November 2026; Weapons Catalogue v1.1.** This repository preserves the project's historical reasoning and a dated snapshot of the current technical specification, recalibrated on 10 November 2026. The linked Google Docs and Google Sheets are the **authoritative live working copies**, not automatically synchronised with GitHub.
 
 ## Current model
 
@@ -14,13 +14,13 @@
 - **Unknown or uncatalogued required weapon:** record for review; do not invent a 1.00 reference.
 - **No era bonus:** the same formula applies to World War II, Korea, Cold War and modern combat. Pilot-versus-pilot scoring is out of scope.
 
-The Weapons Catalogue v1.1 **scoring multiplier** already incorporates 50% compression from its raw weapon difficulty. One exact AAM weapon variant retains its universal multiplier on every aircraft. AIM-54A (AAM-076) is **0.84** and AIM-54C (AAM-077) is **0.79**; AIM-9L 1.00, AIM-9M 0.94 and M61 1.20 remain unchanged. The 0.50 in the *relative* factor weights the comparison of **two existing multipliers**; never compress the catalogue factor a second time.
+The Weapons Catalogue v1.1 **scoring multiplier** already incorporates 50% compression from its raw weapon difficulty. One exact AAM weapon variant retains its universal multiplier on every aircraft. AIM-54A (AAM-076) is **0.84** and AIM-54C (AAM-077) is **0.79**; AIM-120C **0.62**, AIM-120D **0.58** and Meteor **0.50** are the 10 November 2026 approved recalibration; AIM-9L 1.00, AIM-9M 0.94 and M61 1.20 remain unchanged. The 0.50 in the *relative* factor weights the comparison of **two existing multipliers**; never compress the catalogue factor a second time.
 
 **Presentation standard:** Human-readable tables show factors and weapon multipliers to **no more than two decimal places**; points awarded are whole numbers. Code and calculations must retain the **original source precision** and round only the final points award. The CSV data snapshots deliberately preserve the original catalogue precision.
 
 ## Current documents
 
-- [Complete JIRA implementation brief v0.4, Tables 1–44 and Annexes A–G](docs/JIRA-Implementation-Brief-v0.4.md)
+- [Complete JIRA implementation brief v0.4, Tables 1–48 and Annexes A–G](docs/JIRA-Implementation-Brief-v0.4.md)
 - [Archived JIRA implementation brief v0.3, Tables 1–31](docs/JIRA-Implementation-Brief-v0.3.md)
 - [Aircraft A2A Ratings V7.0 snapshot — 199 aircraft, including best-weapon mappings](data/aircraft-a2a-ratings-v7.csv)
 - [A2A Weapons Catalogue v1.1 snapshot — 101 weapon entries, revised Phoenix](data/weapons-catalogue-v1.1.csv)
@@ -41,7 +41,7 @@ The Weapons Catalogue v1.1 **scoring multiplier** already incorporates 50% compr
 - **Annex C — Vietnam War (Early Cold War):** F-4E using seven Vietnam-era air-to-air weapons against MiG-21bis AI at all five levels (Tables 26–27). The MiG-21bis is a standardised model opponent, not a claim of exact historical North Vietnamese equipment.
 - **Annex D — Late Cold War:** F-14A Tomcat and infrared-only F-16A Block 15 against MiG-29A (Tables 28–31) plus F-14A actual-loadout reference selection (Table 32). F-16A 780 is an earlier project rating, provisionally carried over and pending addition to the V7.0 aircraft catalogue; AIM-54C is a later mid-1980s alternative.
 - **Annex E — Early Modern:** Human F/A-18C Lot 20 using M61, AIM-7F, AIM-9L and AIM-120C against Su-27 AI, all five difficulty levels (Tables 33–34). Provisional late-Hornet rating 845 is an annex-only test assumption; Aircraft V7.0 still contains only F/A-18C early 800.
-- **Annex G — Contemporary (2020s):** F-22A vs Su-57 in both human-player directions, plus F-16C Block 70 vs Su-57, with full weapon and five-skill scoring (Tables 39–44). F-16C Block 70 rating 900 is provisional and annex-only; community-mod weapon fits require verification.
+- **Annex G — Contemporary (2020s):** F-22A vs Su-57 in both human-player directions, F-16C Block 70 vs Su-57, and Eurofighter Typhoon (Meteor) vs Su-57 both directions, with five-skill scoring (Tables 39–48). F-16C Block 70 rating 900 is provisional and annex-only; community-mod weapon fits require verification.
 - **Annex F — Modern:** F/A-18C Lot 20 vs Su-27, both human-player directions; weapon tables and five AI levels (Tables 35–38). Hornet rating 845 remains provisional; target reference weapon is loadout-sensitive.
 
 The v0.4 specification includes test cases for unarmed F-111F and defensive-only targets. Actual aircraft and weapon catalogue mappings are **provisional** and may be variant/loadout dependent. The 199-aircraft snapshot currently contains 141 selected catalogue IDs, seven uncatalogued weapons, 36 unarmed aircraft and 15 defensive-only cases.
@@ -54,3 +54,12 @@ The v0.4 specification includes test cases for unarmed F-111F and defensive-only
 Those documents are **not** the current implementation specification. Do not implement their historical weapon factors or scores. The active approach is Weapons Catalogue **v1.1** with **50% raw compression**, a **relative opponent-weapon comparison**, and **loadout-sensitive reference selection**. Aircraft ratings V7.0 remain unchanged pending avionics audit; original F-16A IR-only 780 is provisional.
 
 This repository contains specifications and data snapshots, not an executable DCS scoring implementation.
+
+
+## 10 November 2026 weapon recalibration
+
+- **AAM-080 AIM-120C:** scoring multiplier 0.62 (raw 0.24).
+- **AAM-081 AIM-120D:** scoring multiplier 0.58 (raw 0.16).
+- **AAM-087 Meteor:** scoring multiplier 0.50 (raw 0.00).
+- The 50% raw-score compression and relative weapon comparison formulas are retained. All affected JIRA examples, annexes and live catalogue entries were recomputed against these new subjective scoring assumptions. This is a scoring-model tuning exercise, not measured missile kill probability.
+- Eurofighter Typhoon (Meteor configuration) uses the existing Aircraft V7.0 rating **925** and is compared against Su-57 **930**; real DCS mod loadout availability remains subject to verification.
