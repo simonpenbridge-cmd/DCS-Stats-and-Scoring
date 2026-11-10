@@ -680,3 +680,62 @@ For DCS reference evidence, Heatblur documents AWG-9 tracking up to 24 tracks an
 
 **Version preservation:** JIRA v0.3 and Weapons Catalogue v1.0 remain unchanged as historic references. This v0.4 draft is paired with the separate live Weapons Catalogue v1.1. The GitHub copies are dated snapshots and do not automatically synchronise with the live Google files.
 
+
+
+## Annex F — Modern: F/A-18C Lot 20 versus Su-27 (both player directions)
+
+**Status:** v0.4 provisional acceptance-test fixture. The human first flies the F/A-18C, then the Su-27. These matchups complement Annex E without modifying it. The late-Hornet A2A rating **845** is provisional and not yet approved into Aircraft Ratings V7.0; Su-27 baseline **830** is the existing catalogue rating. All weapons and scoring multipliers below come from Weapons Catalogue v1.1, not ad hoc values. This annex supersedes any informal Annex F draft with different Su-27 weapon factors.
+
+**Formula:** ROUND[100 × AI skill factor × 2/(1+10^((player rating−AI rating)/400)) × {1+0.50×(credited player's source weapon multiplier−AI target's lowest-multiplier eligible A2A weapon actually carried)}]. AI skill factors Cadet 0.60, Rookie 0.80, Trained 1.00, Veteran 1.20, Ace 1.40. Retain full source precision; display factors to two decimals, points as whole numbers. These tables are conditional on the loadouts specified below.
+
+### Annex F.1 — Human F/A-18C kills Su-27 AI
+
+F/A-18C player 845 (provisional); Su-27 AI 830. The AI Su-27 is armed with R-73 (AAM-052, **0.88**) and may carry the higher-multiplier R-27 missiles. AI reference **0.88**. Aircraft factor **0.96** displayed (unrounded 0.9568533338977091). This intentionally reproduces Annex E's modern Hornet test under the same loadout and is a regression check.
+
+#### Table 35 — F/A-18C weapon factors against Su-27 AI
+
+| Weapon | AAM ID | Catalogue multiplier | Relative factor |
+| --- | --- | ---: | ---: |
+| M61 20 mm | AAM-018 | 1.20 | 1.16 |
+| AIM-7F | AAM-069 | 1.12 | 1.12 |
+| AIM-9L | AAM-043 | 1.00 | 1.06 |
+| AIM-120C | AAM-080 | 0.71 | 0.92 |
+
+#### Table 36 — Human F/A-18C kills Su-27 AI: awarded points
+
+| Credited weapon | Cadet | Rookie | Trained | Veteran | Ace |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| M61 20 mm | 67 | 89 | 111 | 133 | 155 |
+| AIM-7F | 64 | 86 | 107 | 129 | 150 |
+| AIM-9L | 61 | 81 | 101 | 122 | 142 |
+| AIM-120C | 53 | 70 | 88 | 105 | 123 |
+
+### Annex F.2 — Human Su-27 kills F/A-18C AI
+
+Su-27 player 830; F/A-18C Lot 20 AI 845 (provisional). The AI F/A-18C is specifically **armed with AIM-120C (AAM-080, source multiplier 0.715)**, which is the lowest-multiplier eligible offensive A2A weapon on its assumed loadout (M61, AIM-7F, AIM-9L and AIM-120C may be carried). AI reference is **0.715** (display **0.72**). Aircraft factor **1.04** displayed (unrounded 1.043146666102291). If the AI Hornet is not carrying AIM-120C, recompute its loadout-dependent reference; do not use a weapon it does not carry.
+
+#### Table 37 — Su-27 weapon factors against F/A-18C AI
+
+| Weapon | AAM ID | Catalogue multiplier | Relative factor |
+| --- | --- | ---: | ---: |
+| GSh-30-1 30 mm | AAM-024 | 1.25 | 1.27 |
+| R-73 | AAM-052 | 0.88 | 1.08 |
+| R-27R | AAM-074 | 1.17 | 1.23 |
+| R-27ER | AAM-075 | 1.11 | 1.20 |
+| R-27T | AAM-048 | 1.11 | 1.20 |
+| R-27ET | AAM-049 | 1.02 | 1.16 |
+
+#### Table 38 — Human Su-27 kills F/A-18C AI: awarded points
+
+| Credited weapon | Cadet | Rookie | Trained | Veteran | Ace |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| GSh-30-1 30 mm | 79 | 106 | 132 | 159 | 185 |
+| R-73 | 68 | 90 | 113 | 136 | 158 |
+| R-27R | 77 | 102 | 128 | 154 | 179 |
+| R-27ER | 75 | 100 | 125 | 150 | 175 |
+| R-27T | 75 | 100 | 125 | 150 | 175 |
+| R-27ET | 72 | 96 | 120 | 145 | 169 |
+
+**Acceptance tests:** F/A-18C player versus Trained Su-27 AI: M61 20 mm 111; AIM-7F 107; AIM-9L 101; AIM-120C 88. Su-27 player versus Trained F/A-18C AI: GSh-30-1 30 mm 132; R-73 113; R-27R 128; R-27ER 125; R-27T 125; R-27ET 120. Source-precision multipliers include AIM-120C 0.715 and R-27ET 1.025. Each scored weapon is an alternative credited kill weapon, not a claim of simultaneous carriage. No pilot-vs-pilot scoring or era bonus is introduced.
+
+**Outstanding approval:** validate provisional Hornet rating 845 in the aircraft-avionics audit before treating this as a production-calibrated aircraft comparison. Existing Annexes A–E and Tables 1–34 remain unchanged.
