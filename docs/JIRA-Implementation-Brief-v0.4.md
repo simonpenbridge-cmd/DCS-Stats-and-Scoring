@@ -410,7 +410,7 @@ Fixed inputs: Human player Bf 109K-4 (aircraft rating 424), using MK 108 30 mm c
 
 Acceptance test: Spitfire IX human scores Cadet 58, Rookie 78, Trained 97, Veteran 116, Ace 136 points. Bf 109K-4 human scores Cadet 62, Rookie 82, Trained 103, Veteran 123, Ace 144 points. The five skill multipliers apply to the destroyed AI only; weapon/aircraft factors remain constant within each direction. No separate era or human-skill multiplier is permitted.
 
-Status: Annex A is proposed for programmer acceptance testing under the v0.3 relative-weapon model. Aircraft ratings and catalogue weapon factors are unchanged; Annexes B and C follow below, while Annexes D–F remain unpopulated.
+Status: Annex A is proposed for programmer acceptance testing under the v0.3 relative-weapon model. Aircraft ratings and catalogue weapon factors are unchanged; Annexes B and C follow below, while Annexes D–G follow in the document.
 
 ### Annex B — Korea: F-86F Sabre, MiG-15bis and P-51D Mustang
 
@@ -476,7 +476,7 @@ Fixed inputs: player MiG-15bis (rating 605) uses NR-23 (AAM-015; multiplier 1.37
 
 Acceptance tests, listed Cadet / Rookie / Trained / Veteran / Ace: F-86F → MiG-15bis: 62 / 83 / 103 / 124 / 145; MiG-15bis → F-86F: 58 / 77 / 96 / 116 / 135; P-51D → MiG-15bis: 95 / 127 / 158 / 190 / 222; MiG-15bis → P-51D: 28 / 37 / 47 / 56 / 65. Keep the aircraft and relative weapon factors constant within each direction, use the full-precision formula, and round only at the end.
 
-Status: Annex B is a proposed Korea-era programmer acceptance test under the v0.3 relative-weapon model. Annexes A and the main specification remain unchanged. The Sabre .50-calibre gun mapping is provisional, as described above. Annex C follows below; Annexes D–F remain unpopulated.
+Status: Annex B is a proposed Korea-era programmer acceptance test under the v0.3 relative-weapon model. Annexes A and the main specification remain unchanged. The Sabre .50-calibre gun mapping is provisional, as described above. Annex C follows below; Annexes D–G follow in the document.
 
 ### Annex C — Vietnam War (Early Cold War): F-4E versus MiG-21bis
 
@@ -524,7 +524,7 @@ Weapon-fit note: historical compatibility does not guarantee carriage in the par
 
 Historical source checks: USAF F-4E internal cannon — https://www.163atkw.ang.af.mil/About-Us/Fact-Sheets/Display/Article/452913/mcdonnell-douglas-f-4e-phantom-ii/ ; Vietnam-era F-4E illustrative loads — https://www.cybermodeler.com/aircraft/f-4/f-4e_loads.shtml ; AIM-4D compatibility — https://www.ausairpower.net/Falcon-Evolution.html ; Vietnamese 1972 MiG-21PFM service — https://vietnam.warbirdsresourcegroup.org/mig21_history_vietnam.html . These are historical cross-checks; scoring numbers come from the two project catalogues.
 
-Status: Annex C is a Vietnam-era equipment comparison using existing F-4E late and MiG-21bis catalogue ratings, for v0.3 programmer acceptance review. Annexes A and B and the main specification remain unchanged. Annexes D and E follow; Annex F remains unpopulated.
+Status: Annex C is a Vietnam-era equipment comparison using existing F-4E late and MiG-21bis catalogue ratings, for v0.3 programmer acceptance review. Annexes A and B and the main specification remain unchanged. Annexes D–G follow.
 
 ## Annex D — Late Cold War (mid-1980s): F-14A and F-16A versus MiG-29A
 
@@ -651,37 +651,6 @@ The global weapon multiplier never depends on which aircraft carries the weapon.
 
 **DCS equipment references:** Eagle Dynamics F/A-18C Early Access Guide — https://www.digitalcombatsimulator.com/upload/iblock/8d7/2s3e89jqknz7xmti8hrhe1bjt2uw1s3e/DCS%20FA-18C%20Early%20Access%20Guide%20EN.pdf ; module weapons list — https://wiki.hoggitworld.com/view/F/A-18C ; Eagle Dynamics Su-27 Flaming Cliffs Flight Manual — https://www.digitalcombatsimulator.com/upload/iblock/ed7/Su-27%20DCS%20Flaming%20Cliffs%20Flight%20Manual%20EN.pdf .
 
-## 9. Version 0.4 changes, avionics review and remaining decisions
-
-### 9.1 — Amendments accepted in v0.4
-
-- One exact AAM catalogue ID has one global multiplier regardless of launching platform.
-- Weapons Catalogue v1.1 applies AIM-54A scoring **0.84** from raw difficulty **0.68**, and AIM-54C scoring **0.79** from raw difficulty **0.58**. The 50% raw-to-scoring formula remains unchanged. AIM-9L **1.00**, AIM-9M **0.94**, M61 **1.20** are unchanged.
-- A gun kill on the F-14A is more rewarding than AIM-9L/M and Phoenix kills, on otherwise identical AI skill, aircraft and target-loadout assumptions.
-- Reference best weapon follows the opponent's actual period-valid and loaded offensive A2A weapons, rather than a static all-era aircraft-family label. For an unarmed/defensive-only AI target, use the player's actually equipped offensive A2A reference.
-- Table 28, Table 29 and Annex D acceptance tests are recalculated; new Table 32 verifies the loadout rule. Tables 1–27 and 30–31 retain their previous results because their example weapon ratings and reference multipliers do not change.
-
-### 9.2 — Aircraft avionics audit (not yet approved for rating changes)
-
-V7.0 retains aircraft F-14A **790**, F-14B **805**, early MiG-29A **760**, F-16C early **805**; the annex's infrared-only F-16A **780** is a separate legacy provisional value not presently listed in V7.0. Candidate sensitivity values of F-14A Phoenix-equipped **830**, MiG-29A **780**, F-16A IR-only **765** were explored in an earlier analysis but are **not approved or substituted into Annex D**.
-
-Before changing any 199-aircraft rating, use consistent historical fit and assess radar discovery range under target/altitude conditions, track/multi-target engagement, fire-control quality, IFF/data link and situational awareness, ECM/ECCM, weapon compatibility and control support, kinematics and energy manoeuvrability, and close-range off-boresight engagement. Rate the aircraft's actual historical fit rather than anachronistic later weapons. Compare F-14A against F-14B and other nearby aircraft; an isolated increase that reverses an upgraded variant without reason is not acceptable. Decide separately whether the platform rating will be fixed per subtype or variable per actual mission loadout.
-
-For DCS reference evidence, Heatblur documents AWG-9 tracking up to 24 tracks and controlling up to six Phoenix engagements, subject to radar mode and limitations (https://f14.manuals.heatblur.se/f14ab/systems/radar/general_operation.html). Heatblur documents AIM-54A/C guidance and launch-mode dependencies (https://f14.manuals.heatblur.se/f14ab/stores/air_to_air/aim_54.html). NAVAIR describes the AIM-54C improvements and deployment history (https://www.navair.navy.mil/node/12701). These support the avionics-review priorities, **not** a numerically proven +40-point F-14A rating adjustment.
-
-### 9.3 — Remaining implementation decisions
-
-- Verify DCS can supply the exact credited weapon ID and **actual target loadout** at the event time. If not, define a verified mission-configured loadout mapping or leave the case pending review; do not guess a best weapon.
-- Verify consistency of AAM-077 AIM-54C **0.79** compared with AAM-079 AIM-120B **0.80**. The presently selected Phoenix numbers are deliberately preserved for testing; catalogue-wide order/calibration remains open.
-- Aircraft V7.0 currently maps F-14A/F-14B static best A2A weapon to AIM-9M despite carrying Phoenix in many configurations. This field is an unvalidated legacy default, not sufficient for v0.4 scoring. All 199 rows require a best-weapon/loadout audit.
-- Add and verify F-16A IR-only (780 provisional) as a distinct platform/fit before using its test cases in a production implementation.
-- Retain the full-precision internal values, two-decimal-place presentation, and final-only whole-point rounding across all six planned era annexes.
-- Section 6.5 remains pending approval; annexes E (Early Modern) and F (Modern) remain planned.
-
-**Version preservation:** JIRA v0.3 and Weapons Catalogue v1.0 remain unchanged as historic references. This v0.4 draft is paired with the separate live Weapons Catalogue v1.1. The GitHub copies are dated snapshots and do not automatically synchronise with the live Google files.
-
-
-
 ## Annex F — Modern: F/A-18C Lot 20 versus Su-27 (both player directions)
 
 **Status:** v0.4 provisional acceptance-test fixture. The human first flies the F/A-18C, then the Su-27. These matchups complement Annex E without modifying it. The late-Hornet A2A rating **845** is provisional and not yet approved into Aircraft Ratings V7.0; Su-27 baseline **830** is the existing catalogue rating. All weapons and scoring multipliers below come from Weapons Catalogue v1.1, not ad hoc values. This annex supersedes any informal Annex F draft with different Su-27 weapon factors.
@@ -738,7 +707,39 @@ Su-27 player 830; F/A-18C Lot 20 AI 845 (provisional). The AI F/A-18C is specifi
 
 **Acceptance tests:** F/A-18C player versus Trained Su-27 AI: M61 20 mm 111; AIM-7F 107; AIM-9L 101; AIM-120C 83. Su-27 player versus Trained F/A-18C AI: GSh-30-1 30 mm 137; R-73 118; R-27R 133; R-27ER 130; R-27T 130; R-27ET 125. Source-precision multipliers include AIM-120C 0.620 and R-27ET 1.025. Each scored weapon is an alternative credited kill weapon, not a claim of simultaneous carriage. No pilot-vs-pilot scoring or era bonus is introduced.
 
-**Outstanding approval:** validate provisional Hornet rating 845 in the aircraft-avionics audit before treating this as a production-calibrated aircraft comparison. Existing Annexes A–E and Tables 1–34 remain unchanged.
+**Outstanding approval:** validate provisional Hornet rating 845 in the aircraft-avionics audit before treating this as a production-calibrated aircraft comparison. Earlier annexes and their recalculated weapon-dependent results are retained.
+
+
+
+## 9. Version 0.4 changes, avionics review and remaining decisions
+
+### 9.1 — Amendments accepted in v0.4
+
+- One exact AAM catalogue ID has one global multiplier regardless of launching platform.
+- Weapons Catalogue v1.1 applies AIM-54A scoring **0.84** from raw difficulty **0.68**, and AIM-54C scoring **0.79** from raw difficulty **0.58**. The 50% raw-to-scoring formula remains unchanged. AIM-9L **1.00**, AIM-9M **0.94**, M61 **1.20** are unchanged.
+- A gun kill on the F-14A is more rewarding than AIM-9L/M and Phoenix kills, on otherwise identical AI skill, aircraft and target-loadout assumptions.
+- Reference best weapon follows the opponent's actual period-valid and loaded offensive A2A weapons, rather than a static all-era aircraft-family label. For an unarmed/defensive-only AI target, use the player's actually equipped offensive A2A reference.
+- Table 28, Table 29 and Annex D acceptance tests are recalculated; new Table 32 verifies the loadout rule. Tables 1–27 and 30–31 retain their previous results because their example weapon ratings and reference multipliers do not change.
+
+### 9.2 — Aircraft avionics audit (not yet approved for rating changes)
+
+V7.0 retains aircraft F-14A **790**, F-14B **805**, early MiG-29A **760**, F-16C early **805**; the annex's infrared-only F-16A **780** is a separate legacy provisional value not presently listed in V7.0. Candidate sensitivity values of F-14A Phoenix-equipped **830**, MiG-29A **780**, F-16A IR-only **765** were explored in an earlier analysis but are **not approved or substituted into Annex D**.
+
+Before changing any 199-aircraft rating, use consistent historical fit and assess radar discovery range under target/altitude conditions, track/multi-target engagement, fire-control quality, IFF/data link and situational awareness, ECM/ECCM, weapon compatibility and control support, kinematics and energy manoeuvrability, and close-range off-boresight engagement. Rate the aircraft's actual historical fit rather than anachronistic later weapons. Compare F-14A against F-14B and other nearby aircraft; an isolated increase that reverses an upgraded variant without reason is not acceptable. Decide separately whether the platform rating will be fixed per subtype or variable per actual mission loadout.
+
+For DCS reference evidence, Heatblur documents AWG-9 tracking up to 24 tracks and controlling up to six Phoenix engagements, subject to radar mode and limitations (https://f14.manuals.heatblur.se/f14ab/systems/radar/general_operation.html). Heatblur documents AIM-54A/C guidance and launch-mode dependencies (https://f14.manuals.heatblur.se/f14ab/stores/air_to_air/aim_54.html). NAVAIR describes the AIM-54C improvements and deployment history (https://www.navair.navy.mil/node/12701). These support the avionics-review priorities, **not** a numerically proven +40-point F-14A rating adjustment.
+
+### 9.3 — Remaining implementation decisions
+
+- Verify DCS can supply the exact credited weapon ID and **actual target loadout** at the event time. If not, define a verified mission-configured loadout mapping or leave the case pending review; do not guess a best weapon.
+- Verify consistency of AAM-077 AIM-54C **0.79** compared with AAM-079 AIM-120B **0.80**. The presently selected Phoenix numbers are deliberately preserved for testing; catalogue-wide order/calibration remains open.
+- Aircraft V7.0 currently maps F-14A/F-14B static best A2A weapon to AIM-9M despite carrying Phoenix in many configurations. This field is an unvalidated legacy default, not sufficient for v0.4 scoring. All 199 rows require a best-weapon/loadout audit.
+- Add and verify F-16A IR-only (780 provisional) as a distinct platform/fit before using its test cases in a production implementation.
+- Retain the full-precision internal values, two-decimal-place presentation, and final-only whole-point rounding across all six planned era annexes.
+- Section 6.5 remains pending approval; annexes E (Early Modern) and F (Modern) remain planned.
+
+**Version preservation:** JIRA v0.3 and Weapons Catalogue v1.0 remain unchanged as historic references. This v0.4 draft is paired with the separate live Weapons Catalogue v1.1. The GitHub copies are dated snapshots and do not automatically synchronise with the live Google files.
+
 
 
 ## Annex G — Contemporary (2020s): F-22A, Su-57, F-16C Block 70
