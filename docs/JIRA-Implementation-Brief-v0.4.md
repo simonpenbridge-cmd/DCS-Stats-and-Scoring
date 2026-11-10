@@ -825,21 +825,25 @@ Player rating 900; AI rating 930; aircraft factor **1.09** displayed (unrounded 
 
 ### Annex G.4 — Human Eurofighter Typhoon (Meteor configuration) kills Su-57 AI
 
-Aircraft V7.0 supplies **Eurofighter Typhoon, Meteor = 925**; Su-57 = **930**. Target reference R-77-1 AAM-083 = **0.81**, assumed actually loaded. Aircraft factor 1.01. These are conditional model tests: the Typhoon mod's actual DCS Meteor/short-range/gun support must be verified. For consistency with the catalogue, compare the fully catalogued Meteor, and the separately catalogued AIM-9X Block II only as an illustrative alternative fit. The Typhoon BK-27 cannon is not included as a kill row until its exact gun AAM catalogue ID is verified for this variant.
+Aircraft V7.0 supplies **Eurofighter Typhoon, Meteor = 925**; Su-57 = **930**. Target reference R-77-1 AAM-083 = **0.81**, assumed actually loaded. Aircraft factor 1.01. These are conditional model tests: the Typhoon mod's actual DCS Meteor/short-range/gun support must be verified. This test includes the catalogue-listed Mauser BK-27 cannon, ASRAAM and IRIS-T as alternatives to Meteor. ASRAAM and IRIS-T are fit-dependent national/variant choices, not necessarily simultaneous carriage; mission equipment and mod support must be verified.
 
 #### Table 45 — Eurofighter Typhoon weapon factors against Su-57 AI
 
 | Weapon | AAM ID | Global multiplier | Relative weapon factor |
 | --- | --- | ---: | ---: |
+| Mauser BK-27 cannon | AAM-089 | 1.24 | 1.21 |
+| ASRAAM | AAM-057 | 0.81 | 1.00 |
+| IRIS-T | AAM-056 | 0.80 | 1.00 |
 | Meteor | AAM-087 | 0.50 | 0.84 |
-| AIM-9X Block II (illustrative alternative) | AAM-055 | 0.78 | 0.98 |
 
 #### Table 46 — Eurofighter Typhoon human kills Su-57 AI
 
 | Weapon | Cadet | Rookie | Trained | Veteran | Ace |
 | --- | ---: | ---: | ---: | ---: | ---: |
+| Mauser BK-27 cannon | 74 | 99 | 123 | 148 | 173 |
+| ASRAAM | 61 | 81 | 101 | 122 | 142 |
+| IRIS-T | 61 | 81 | 101 | 121 | 141 |
 | Meteor | 51 | 69 | 86 | 103 | 120 |
-| AIM-9X Block II (illustrative alternative) | 60 | 80 | 100 | 120 | 140 |
 
 ### Annex G.5 — Human Su-57 kills Eurofighter Typhoon (Meteor configuration) AI
 
