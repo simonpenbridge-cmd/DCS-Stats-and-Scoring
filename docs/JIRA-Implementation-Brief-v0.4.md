@@ -589,11 +589,11 @@ Acceptance tests, listed Cadet / Rookie / Trained / Veteran / Ace:
 - F-14A M61: **66 / 88 / 110 / 132 / 154**; F-14A AIM-54A: **53 / 71 / 88 / 106 / 123**; F-14A AIM-54C: **52 / 69 / 86 / 104 / 121**.
 - F-16A M61: **68 / 91 / 114 / 136 / 159**; F-16A AIM-9L: **62 / 83 / 104 / 125 / 146**; F-16A AIM-9M: **61 / 81 / 101 / 122 / 142**.
 
-Implementation notes: import/confirm the original F-16A IR-only 780 entry into the aircraft catalogue before treating the F-16A cases as production acceptance tests; track exact year, country, flight model and available DCS loadouts. Do not override the selected MiG-29 best-weapon reference or round intermediate multipliers. Earlier Annexes A–C and Tables 1–27 remain unchanged. Annex E follows; Annex F remains planned.
+Implementation notes: import/confirm the original F-16A IR-only 780 entry into the aircraft catalogue before treating the F-16A cases as production acceptance tests; track exact year, country, flight model and available DCS loadouts. Do not override the selected MiG-29 best-weapon reference or round intermediate multipliers. Earlier Annexes A–C and Tables 1–27 remain unchanged. Annex E is followed immediately by the completed Annex F.
 
 Historical source checks: F-16A initial service and 1981 growth provisions — https://www.af.mil/News/Article/104505/f-16-fighting-falcon/ ; 1980s F-16A with AIM-9L — https://www.airandspaceforces.com/app/uploads/1994/10/1094_Oct1994.pdf ; US Navy Phoenix dates — https://www.navair.navy.mil/node/12701 ; US Navy training plan (AIM-54C formal IOC December 1986) — https://www.globalsecurity.org/military/library/policy/navy/ntsp/aim54.htm .
 
-Status: Annex D is recalculated for v0.4 with globally consistent Weapons Catalogue v1.1 Phoenix factors. Existing F-14A 790 and MiG-29A 760 aircraft ratings remain in force for these test tables; legacy F-16A IR-only 780 is provisional until entered in V7.0. The earlier avionics sensitivity trials are not implemented.
+Status: Annex D is recalculated for v0.4 with revised globally consistent Weapons Catalogue v1.1 Phoenix, Sparrow and R-27 reference factors. Existing F-14A 790 and MiG-29A 760 aircraft ratings remain in force for these test tables; legacy F-16A IR-only 780 is provisional until entered in V7.0. The earlier avionics sensitivity trials are not implemented.
 
 
 ### Annex D.3 — Loadout-sensitive AI F-14A reference test (new Table 32)
@@ -618,7 +618,7 @@ Interpretation: a more capable equipped enemy earns more points for an R-73 kill
 
 **Configuration and rating qualification:** Aircraft Ratings V7.0 lists **F/A-18C early = 800** (Sparrow-era fit, before AMRAAM), but does **not** provide an independent A2A rating for the later DCS F/A-18C Lot 20 with AIM-120C. It would be misleading to imply that the existing 800 rating was derived for a modern ARH capability. **845 is therefore a provisional, analyst-selected working rating for this annex only**, placed between Su-27 baseline 830 and F-15C late AMRAAM 850. It is not adopted into Aircraft Ratings V7.0, and remains subject to the avionics review. This is a test fixture, not an empirically derived ranking or an approved rating.
 
-**AI target:** Su-27 baseline = **830** (Aircraft V7.0). For this test, the AI Su-27 is **actually armed with the R-73 (AAM-052, 0.92)** and **R-27ER (AAM-075, 0.75)**. The R-27ER is the lowest-multiplier eligible weapon of the assumed loaded pair and is now the AI reference. No R-77/active-radar modification is assumed. If R-73 is not carried in a different mission, its reference must always be recalculated from the actual AI loadout. AI skill factors remain 0.60 / 0.80 / 1.00 / 1.20 / 1.40.
+**AI target:** Su-27 baseline = **830** (Aircraft V7.0). For this test, the AI Su-27 is **actually armed with the R-73 (AAM-052, 0.92)** and **R-27ER (AAM-075, 0.75)**. The R-27ER is the lowest-multiplier eligible weapon of the assumed loaded pair and is now the AI reference. No R-77/active-radar modification is assumed. If R-27ER is not carried in a different mission, its reference must be recalculated from the actual AI loadout. AI skill factors remain 0.60 / 0.80 / 1.00 / 1.20 / 1.40.
 
 **Fixed working aircraft factor:** 2 ÷ [1 + 10^((845 − 830)/400)] = **0.96** displayed. Calculations use the unrounded factor **0.9568533338977091**; final score rounded once to the nearest whole point.
 
@@ -648,7 +648,7 @@ The global weapon multiplier never depends on which aircraft carries the weapon.
 | AIM-9L Sidewinder | 65 | 86 | 108 | 129 | 151 |
 | AIM-120C AMRAAM | 54 | 72 | 89 | 107 | 125 |
 
-**Acceptance checks (provisional rating 845 only):** for a Trained Su-27 AI, cannon **111**, AIM-7F **107**, AIM-9L **101** and AIM-120C **83**. In this model, scoring a cannon kill is more rewarding than an AMRAAM kill against the same aircraft and AI skill. Do not round the 0.620 source multiplier to 0.62 before calculating.
+**Acceptance checks (provisional rating 845 only):** for a Trained Su-27 AI, cannon **117**, AIM-7F **99**, AIM-9L **108** and AIM-120C **89**. In this model, scoring a cannon kill is more rewarding than an AMRAAM kill against the same aircraft and AI skill. Retain the source precision and round final kill points only once.
 
 **Avionics cross-check:** the later Hornet's radar, electronic-warfare integration, situational awareness and AMRAAM support warrant a configuration-specific review. The proposed 845 value must be tested against the existing F-15C late AMRAAM 850, F-16C Block 50/52 875, early F/A-18C 800 and Su-27 baseline 830 before programmer acceptance. Until then, this annex is useful as an algorithm test and not as an approved 199-aircraft catalogue calibration.
 
@@ -735,7 +735,7 @@ For DCS reference evidence, Heatblur documents AWG-9 tracking up to 24 tracks an
 ### 9.3 — Remaining implementation decisions
 
 - Verify DCS can supply the exact credited weapon ID and **actual target loadout** at the event time. If not, define a verified mission-configured loadout mapping or leave the case pending review; do not guess a best weapon.
-- Verify consistency of AAM-077 AIM-54C **0.79** compared with AAM-079 AIM-120B **0.80**. The presently selected Phoenix numbers are deliberately preserved for testing; catalogue-wide order/calibration remains open.
+- Verify consistency of AAM-077 AIM-54C **0.68** compared with AAM-079 AIM-120B **0.68**. These are now equal in the approved scoring hierarchy; wider cross-era modelling assumptions remain provisional.
 - Aircraft V7.0 currently maps F-14A/F-14B static best A2A weapon to AIM-9M despite carrying Phoenix in many configurations. This field is an unvalidated legacy default, not sufficient for v0.4 scoring. All 199 rows require a best-weapon/loadout audit.
 - Add and verify F-16A IR-only (780 provisional) as a distinct platform/fit before using its test cases in a production implementation.
 - Retain the full-precision internal values, two-decimal-place presentation, and final-only whole-point rounding across all six planned era annexes.
