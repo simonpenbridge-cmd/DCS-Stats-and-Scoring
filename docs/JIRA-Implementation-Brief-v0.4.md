@@ -57,13 +57,13 @@ Kill points = 100 × AI skill factor × aircraft factor × RELATIVE weapon facto
 | M61 Vulcan 20 mm cannon | 1.40 | 1.20 |
 | AIM-9B Sidewinder | 2.18 | 1.59 |
 | AIM-9L Sidewinder | 1.00 | 1.00 |
-| AIM-9X Block I | 0.62 | 0.81 |
+| AIM-9X Block I | 0.74 | 0.87 |
 | AIM-7D Sparrow | 1.92 | 1.46 |
 | AIM-7E Sparrow | 1.82 | 1.41 |
-| AIM-7F Sparrow | 1.24 | 1.12 |
+| AIM-7F Sparrow | 0.64 | 0.82 |
 | AIM-120C AMRAAM | 0.24 | 0.62 |
-| AIM-54A Phoenix (AAM-076) | 0.68 | 0.84 |
-| AIM-54C Phoenix (AAM-077) | 0.58 | 0.79 |
+| AIM-54A Phoenix (AAM-076) | 0.44 | 0.72 |
+| AIM-54C Phoenix (AAM-077) | 0.36 | 0.68 |
 
 ### 3.1 — Relative weapon comparison (retained scoring rule)
 
@@ -197,7 +197,7 @@ Tables 9 and 10. Purpose: show how the score varies when the same F-4E (rating 7
 | AI aircraft / best weapon | AI rating | Aircraft × relative weapon factor | Points awarded |
 | --- | --- | --- | --- |
 | MiG-21bis; R-60M (1.04) | 710 | 0.91 × 1.19 | 108 |
-| F-4E late; AIM-7M (1.05) | 740 | 1.00 × 1.18 | 118 |
+| F-4E late; AIM-7M (0.78) | 740 | 1.00 × 1.32 | 132 |
 | F-16C; AIM-120C (0.62) | 875 | 1.37 × 1.40 | 191 |
 
 Acceptance test: F-4E firing AIM-7E (catalogue multiplier 1.410) must earn 108 points against MiG-21bis (best R-60M, 1.040), 118 against F-4E late (best AIM-7M, 1.045), and 191 against F-16C Block 50/52 (best AIM-120C, 0.620). AI skill stays Trained (1.00). Aircraft and relative weapon factors are recalculated for each AI type; use final-only rounding.
@@ -217,16 +217,16 @@ Tables 11 and 12. Purpose: isolate actual weapon choice against one fixed AI opp
 | Player aircraft | MiG-21bis, rating 710 |
 | AI aircraft | F-4E Phantom II (late), rating 740 |
 | AI skill | Trained, 1.00 |
-| AI best A2A weapon | AIM-7M Sparrow (1.05) |
+| AI best A2A weapon | AIM-7M Sparrow (0.78) |
 | Base score | 100 points |
 
 #### Table 12 — Section 6.3: weapon comparison - Player in MiG-21
 
 | Weapon / ID | Raw difficulty | Catalogue multiplier | Relative factor → points |
 | --- | --- | --- | --- |
-| R-60M (AAM-045) | 1.08 | 1.04 | 1.00 → 108 |
-| K-13 / R-3S Atoll (AAM-035) | 2.20 | 1.60 | 1.28 → 139 |
-| GSh-23L 23 mm cannon (AAM-014) | 1.58 | 1.29 | 1.12 → 122 |
+| R-60M (AAM-045) | 1.08 | 1.04 | 1.13 → 123 |
+| K-13 / R-3S Atoll (AAM-035) | 2.20 | 1.60 | 1.41 → 153 |
+| GSh-23L 23 mm cannon (AAM-014) | 1.58 | 1.29 | 1.26 → 136 |
 
 Acceptance test: the R-60M, K-13/R-3S and GSh-23L kills must score 108, 139 and 122 respectively. The AI best weapon is AIM-7M (1.045), unchanged across tests. Use full-precision aircraft/weapon calculations and round the final score once.
 
@@ -250,8 +250,8 @@ Table 13 shows the aircraft and weapon choices, including the separately calcula
 | AI skill | Trained | Trained | Trained |
 | Skill multiplier | 1.00 | 1.00 | 1.00 |
 | Aircraft multiplier | 1.02 | 1.09 | 1.13 |
-| Relative weapon factor | 0.95 | 1.00 | 1.25 |
-| Points awarded | 97 | 108 | 141 |
+| Relative weapon factor | 0.95 | 1.13 | 1.07 |
+| Points awarded | 97 | 123 | 120 |
 
 Acceptance test: WWII 97 points; Cold War 108 points; Modern 141 points. These derive from relative weapon factors 0.9500, 0.9975 and 1.2450 respectively. No independent WWII, Cold War or modern-era multiplier is permitted.
 
@@ -275,18 +275,18 @@ Purpose: reverse the original player and AI aircraft in all five examples. Keep 
 | AI skill | Trained | Trained | Trained |
 | Skill multiplier | 1.00 | 1.00 | 1.00 |
 | Aircraft multiplier | 0.98 | 0.91 | 0.87 |
-| Relative weapon factor | 1.05 | 1.00 | 0.87 |
-| Points awarded | 103 | 92 | 76 |
+| Relative weapon factor | 1.05 | 0.87 | 0.94 |
+| Points awarded | 103 | 80 | 81 |
 
 #### Table 15 — Original and reversed match-ups, including cross-era comparisons
 
 | Match-up | Earlier direction (points) | Reversed direction (points) | Reversed weapon |
 | --- | --- | --- | --- |
 | Bf 109K-4 / Spitfire IX | Spitfire IX → Bf 109K-4: 97 | Bf 109K-4 → Spitfire IX: 103 | MK 108 |
-| F-4E / MiG-21bis | MiG-21bis → F-4E: 108 | F-4E → MiG-21bis: 92 | AIM-7M |
-| F-16C / Su-27 | Su-27 → F-16C: 141 | F-16C → Su-27: 76 | AIM-120C |
+| F-4E / MiG-21bis | MiG-21bis → F-4E: 123 | F-4E → MiG-21bis: 80 | AIM-7M |
+| F-16C / Su-27 | Su-27 → F-16C: 120 | F-16C → Su-27: 81 | AIM-120C |
 | MiG-21bis / F-16C | MiG-21bis → F-16C: 175 | F-16C → MiG-21bis: 44 | AIM-120C |
-| F-4E / Su-27 | F-4E → Su-27: 159 | Su-27 → F-4E: 77 | R-27ER |
+| F-4E / Su-27 | F-4E → Su-27: 167 | Su-27 → F-4E: 74 | R-27ER |
 
 Programming interpretation: there is no separate era adjustment. With Trained AI, MiG-21bis using R-60M against F-16C earns 175 versus 44 for F-16C using AIM-120C against MiG-21bis. F-4E using AIM-7E against Su-27 earns 159 versus 77 for Su-27 using R-27ER against F-4E. Both relative aircraft ratings and the target's best weapon drive these results.
 
@@ -307,10 +307,10 @@ Reference-only calculation: catalogue index = 100 × catalogue scoring multiplie
 | M61 Vulcan cannon | AAM-018 | 1.20 | 120 |
 | AIM-9B Sidewinder | AAM-032 | 1.59 | 159 |
 | AIM-9L Sidewinder | AAM-043 | 1.00 | 100 |
-| AIM-9X Block I | AAM-054 | 0.81 | 81 |
+| AIM-9X Block I | AAM-054 | 0.87 | 87 |
 | AIM-7D Sparrow | AAM-062 | 1.46 | 146 |
 | AIM-7E Sparrow | AAM-063 | 1.41 | 141 |
-| AIM-7F Sparrow | AAM-069 | 1.12 | 112 |
+| AIM-7F Sparrow | AAM-069 | 0.82 | 82 |
 
 #### Table 17 — Weapon comparison: modern missile options
 
@@ -320,7 +320,7 @@ The same catalogue-only reference convention applies. AIM-9L remains the 1.00 ra
 | --- | --- | --- | --- |
 | M61 Vulcan cannon | AAM-018 | 1.20 | 120 |
 | AIM-9L Sidewinder | AAM-043 | 1.00 | 100 |
-| AIM-9X Block I | AAM-054 | 0.81 | 81 |
+| AIM-9X Block I | AAM-054 | 0.87 | 87 |
 | AIM-120C AMRAAM | AAM-080 | 0.62 | 62 |
 
 Reference-index checks (NOT kill points): M61 120, AIM-9B 159, AIM-9L 100, AIM-9X Block I 81, AIM-7D 146, AIM-7E 141, AIM-7F 112 and AIM-120C 62. These numbers are a catalogue scale only; actual kill awards require the AI's best weapon (or the unarmed/defensive-only fallback).
@@ -351,7 +351,7 @@ Worked test: a Trained F-111F AI (rating 640; unarmed) is destroyed by an F-16C 
 | --- | --- | --- | --- |
 | M61 Vulcan (AAM-018) | 1.20 | 1.29 | 53 |
 | AIM-9L (AAM-043) | 1.00 | 1.19 | 49 |
-| AIM-9X Block I (AAM-054) | 0.81 | 1.09 | 45 |
+| AIM-9X Block I (AAM-054) | 0.87 | 1.13 | 46 |
 | AIM-120C (AAM-080) | 0.62 | 1.00 | 41 |
 
 Acceptance test: M61 Vulcan 53 points, AIM-9L 49, AIM-9X Block I 45 and AIM-120C 41. All assume Trained AI. The AIM-120C kill is neutral in weapon terms (relative factor 1.000), and using the M61 cannon earns a modest premium (relative factor 1.2900).
@@ -542,25 +542,25 @@ Fixed inputs: player F-14A, rating 790; AI MiG-29A, rating 760, best weapon R-73
 
 | F-14A weapon | Weapon ID | Catalogue multiplier | Relative weapon factor |
 | --- | --- | ---: | ---: |
-| M61 Vulcan 20 mm | AAM-018 | 1.20 | 1.16 |
-| AIM-9L Sidewinder | AAM-043 | 1.00 | 1.06 |
-| AIM-9M Sidewinder | AAM-044 | 0.94 | 1.03 |
-| AIM-7F Sparrow | AAM-069 | 1.12 | 1.12 |
-| AIM-7M Sparrow | AAM-070 | 1.05 | 1.08 |
-| AIM-54A Phoenix | AAM-076 | 0.84 | 0.98 |
-| AIM-54C Phoenix (later fit) | AAM-077 | 0.79 | 0.96 |
+| M61 Vulcan 20 mm | AAM-018 | 1.20 | 1.21 |
+| AIM-9L Sidewinder | AAM-043 | 1.00 | 1.11 |
+| AIM-9M Sidewinder | AAM-044 | 0.94 | 1.08 |
+| AIM-7F Sparrow | AAM-069 | 0.82 | 1.02 |
+| AIM-7M Sparrow | AAM-070 | 0.78 | 1.00 |
+| AIM-54A Phoenix | AAM-076 | 0.72 | 0.97 |
+| AIM-54C Phoenix (later fit) | AAM-077 | 0.68 | 0.95 |
 
 #### Table 29 — Annex D.1: F-14A human kills MiG-29A AI; points
 
 | Credited F-14A weapon | Cadet | Rookie | Trained | Veteran | Ace |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| M61 Vulcan | 64 | 85 | 106 | 127 | 148 |
-| AIM-9L Sidewinder | 58 | 77 | 97 | 116 | 136 |
-| AIM-9M Sidewinder | 56 | 75 | 94 | 113 | 132 |
-| AIM-7F Sparrow | 61 | 82 | 102 | 123 | 143 |
-| AIM-7M Sparrow | 59 | 79 | 99 | 119 | 138 |
-| AIM-54A Phoenix | 54 | 72 | 90 | 107 | 125 |
-| AIM-54C Phoenix (later fit) | 52 | 70 | 87 | 105 | 122 |
+| M61 Vulcan | 66 | 88 | 110 | 132 | 154 |
+| AIM-9L Sidewinder | 61 | 81 | 101 | 121 | 141 |
+| AIM-9M Sidewinder | 59 | 79 | 98 | 118 | 138 |
+| AIM-7F Sparrow | 56 | 74 | 93 | 111 | 130 |
+| AIM-7M Sparrow | 55 | 73 | 91 | 109 | 127 |
+| AIM-54A Phoenix | 53 | 71 | 88 | 106 | 123 |
+| AIM-54C Phoenix (later fit) | 52 | 69 | 86 | 104 | 121 |
 
 ### Annex D.2 — Human F-16A Block 15 kills MiG-29A AI
 
@@ -570,17 +570,17 @@ Fixed inputs: player F-16A Block 15, original non-ADF infrared-only fit, **provi
 
 | F-16A weapon | Weapon ID | Catalogue multiplier | Relative weapon factor |
 | --- | --- | ---: | ---: |
-| M61 Vulcan 20 mm | AAM-018 | 1.20 | 1.16 |
-| AIM-9L Sidewinder | AAM-043 | 1.00 | 1.06 |
-| AIM-9M Sidewinder | AAM-044 | 0.94 | 1.03 |
+| M61 Vulcan 20 mm | AAM-018 | 1.20 | 1.21 |
+| AIM-9L Sidewinder | AAM-043 | 1.00 | 1.11 |
+| AIM-9M Sidewinder | AAM-044 | 0.94 | 1.08 |
 
 #### Table 31 — Annex D.2: F-16A human kills MiG-29A AI; points
 
 | Credited F-16A weapon | Cadet | Rookie | Trained | Veteran | Ace |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| M61 Vulcan | 66 | 87 | 109 | 131 | 153 |
-| AIM-9L Sidewinder | 60 | 80 | 100 | 120 | 140 |
-| AIM-9M Sidewinder | 58 | 78 | 97 | 116 | 136 |
+| M61 Vulcan | 68 | 91 | 114 | 136 | 159 |
+| AIM-9L Sidewinder | 62 | 83 | 104 | 125 | 146 |
+| AIM-9M Sidewinder | 61 | 81 | 101 | 122 | 142 |
 
 Acceptance tests, listed Cadet / Rookie / Trained / Veteran / Ace:
 - F-14A M61: **64 / 85 / 106 / 127 / 148**; F-14A AIM-54A: **54 / 72 / 90 / 107 / 125**; F-14A AIM-54C: **52 / 70 / 87 / 105 / 122**.
@@ -601,9 +601,9 @@ Purpose: validate that the *same* MiG-29A human, using R-73 AAM-052 (0.88), rece
 
 | F-14A AI weapons available | Selected AI reference | Reference multiplier | Cadet | Rookie | Trained | Veteran | Ace |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| AIM-54C + AIM-9M + M61 | AIM-54C (AAM-077) | 0.79 | 68 | 91 | 114 | 136 | 159 |
-| AIM-54A + AIM-9M + M61 | AIM-54A (AAM-076) | 0.84 | 66 | 89 | 111 | 133 | 155 |
-| AIM-9M + M61 (no Phoenix) | AIM-9M (AAM-044) | 0.94 | 63 | 84 | 105 | 126 | 147 |
+| AIM-54C + AIM-9M + M61 | AIM-54C (AAM-077) | 0.68 | 73 | 97 | 122 | 146 | 170 |
+| AIM-54A + AIM-9M + M61 | AIM-54A (AAM-076) | 0.72 | 72 | 96 | 119 | 143 | 167 |
+| AIM-9M + M61 (no Phoenix) | AIM-9M (AAM-044) | 0.94 | 65 | 86 | 108 | 129 | 151 |
 
 Interpretation: a more capable equipped enemy earns more points for an R-73 kill because its effective reference multiplier is lower. This is **not** a per-carrier weapon-factor change. The fixed F-14A aircraft rating in this test has not yet been made loadout-sensitive; any future aircraft-configuration rating changes would require a separate full-catalogue audit.
 
@@ -627,10 +627,10 @@ Interpretation: a more capable equipped enemy earns more points for an R-73 kill
 
 | Credited F/A-18C weapon | AAM ID | Global catalogue multiplier | Relative weapon factor |
 | --- | --- | ---: | ---: |
-| M61 20 mm cannon | AAM-018 | 1.20 | 1.16 |
-| AIM-7F Sparrow | AAM-069 | 1.12 | 1.12 |
-| AIM-9L Sidewinder | AAM-043 | 1.00 | 1.06 |
-| AIM-120C AMRAAM | AAM-080 | 0.62 | 0.87 |
+| M61 20 mm cannon | AAM-018 | 1.20 | 1.23 |
+| AIM-7F Sparrow | AAM-069 | 0.82 | 1.04 |
+| AIM-9L Sidewinder | AAM-043 | 1.00 | 1.13 |
+| AIM-120C AMRAAM | AAM-080 | 0.62 | 0.94 |
 
 The global weapon multiplier never depends on which aircraft carries the weapon. The relative factor is **1 + 0.50 × (M_used − 0.880)**, calculated at source precision.
 
@@ -640,10 +640,10 @@ The global weapon multiplier never depends on which aircraft carries the weapon.
 
 | Credited F/A-18C weapon | Cadet | Rookie | Trained | Veteran | Ace |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| M61 20 mm cannon | 67 | 89 | 111 | 133 | 155 |
-| AIM-7F Sparrow | 64 | 86 | 107 | 129 | 150 |
-| AIM-9L Sidewinder | 61 | 81 | 101 | 122 | 142 |
-| AIM-120C AMRAAM | 50 | 67 | 83 | 100 | 117 |
+| M61 20 mm cannon | 70 | 94 | 117 | 141 | 164 |
+| AIM-7F Sparrow | 59 | 79 | 99 | 119 | 139 |
+| AIM-9L Sidewinder | 65 | 86 | 108 | 129 | 151 |
+| AIM-120C AMRAAM | 54 | 72 | 89 | 107 | 125 |
 
 **Acceptance checks (provisional rating 845 only):** for a Trained Su-27 AI, cannon **111**, AIM-7F **107**, AIM-9L **101** and AIM-120C **83**. In this model, scoring a cannon kill is more rewarding than an AMRAAM kill against the same aircraft and AI skill. Do not round the 0.620 source multiplier to 0.62 before calculating.
 
@@ -665,19 +665,19 @@ F/A-18C player 845 (provisional); Su-27 AI 830. The AI Su-27 is armed with R-73 
 
 | Weapon | AAM ID | Catalogue multiplier | Relative factor |
 | --- | --- | ---: | ---: |
-| M61 20 mm | AAM-018 | 1.20 | 1.16 |
-| AIM-7F | AAM-069 | 1.12 | 1.12 |
-| AIM-9L | AAM-043 | 1.00 | 1.06 |
-| AIM-120C | AAM-080 | 0.62 | 0.87 |
+| M61 20 mm | AAM-018 | 1.20 | 1.23 |
+| AIM-7F | AAM-069 | 0.82 | 1.04 |
+| AIM-9L | AAM-043 | 1.00 | 1.13 |
+| AIM-120C | AAM-080 | 0.62 | 0.94 |
 
 #### Table 36 — Human F/A-18C kills Su-27 AI: awarded points
 
 | Credited weapon | Cadet | Rookie | Trained | Veteran | Ace |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| M61 20 mm | 67 | 89 | 111 | 133 | 155 |
-| AIM-7F | 64 | 86 | 107 | 129 | 150 |
-| AIM-9L | 61 | 81 | 101 | 122 | 142 |
-| AIM-120C | 50 | 67 | 83 | 100 | 117 |
+| M61 20 mm | 70 | 94 | 117 | 141 | 164 |
+| AIM-7F | 59 | 79 | 99 | 119 | 139 |
+| AIM-9L | 65 | 86 | 108 | 129 | 151 |
+| AIM-120C | 54 | 72 | 89 | 107 | 125 |
 
 ### Annex F.2 — Human Su-27 kills F/A-18C AI
 
@@ -687,23 +687,23 @@ Su-27 player 830; F/A-18C Lot 20 AI 845 (provisional). The AI F/A-18C is specifi
 
 | Weapon | AAM ID | Catalogue multiplier | Relative factor |
 | --- | --- | ---: | ---: |
-| GSh-30-1 30 mm | AAM-024 | 1.25 | 1.31 |
-| R-73 | AAM-052 | 0.88 | 1.13 |
-| R-27R | AAM-074 | 1.17 | 1.27 |
-| R-27ER | AAM-075 | 1.11 | 1.25 |
-| R-27T | AAM-048 | 1.11 | 1.25 |
-| R-27ET | AAM-049 | 1.02 | 1.20 |
+| GSh-30-1 30 mm | AAM-024 | 1.25 | 1.32 |
+| R-73 | AAM-052 | 0.92 | 1.15 |
+| R-27R | AAM-074 | 0.79 | 1.09 |
+| R-27ER | AAM-075 | 0.75 | 1.07 |
+| R-27T | AAM-048 | 0.81 | 1.10 |
+| R-27ET | AAM-049 | 0.75 | 1.07 |
 
 #### Table 38 — Human Su-27 kills F/A-18C AI: awarded points
 
 | Credited weapon | Cadet | Rookie | Trained | Veteran | Ace |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | GSh-30-1 30 mm | 82 | 110 | 137 | 165 | 192 |
-| R-73 | 71 | 94 | 118 | 141 | 165 |
-| R-27R | 80 | 106 | 133 | 160 | 186 |
-| R-27ER | 78 | 104 | 130 | 156 | 182 |
-| R-27T | 78 | 104 | 130 | 156 | 182 |
-| R-27ET | 75 | 100 | 125 | 151 | 176 |
+| R-73 | 72 | 96 | 120 | 144 | 168 |
+| R-27R | 68 | 91 | 113 | 136 | 158 |
+| R-27ER | 67 | 89 | 111 | 133 | 156 |
+| R-27T | 69 | 91 | 114 | 137 | 160 |
+| R-27ET | 67 | 89 | 111 | 133 | 156 |
 
 **Acceptance tests:** F/A-18C player versus Trained Su-27 AI: M61 20 mm 111; AIM-7F 107; AIM-9L 101; AIM-120C 83. Su-27 player versus Trained F/A-18C AI: GSh-30-1 30 mm 137; R-73 118; R-27R 133; R-27ER 130; R-27T 130; R-27ET 125. Source-precision multipliers include AIM-120C 0.620 and R-27ET 1.025. Each scored weapon is an alternative credited kill weapon, not a claim of simultaneous carriage. No pilot-vs-pilot scoring or era bonus is introduced.
 
@@ -758,17 +758,17 @@ Player rating 955; AI rating 930; aircraft factor **0.93** displayed (unrounded 
 
 | Credited weapon | Catalogue ID | Global multiplier | Relative weapon factor |
 | --- | --- | ---: | ---: |
-| M61A2 20 mm cannon | AAM-018 | 1.20 | 1.19 |
-| AIM-9X Block I | AAM-054 | 0.81 | 1.00 |
-| AIM-120D | AAM-081 | 0.58 | 0.89 |
+| M61A2 20 mm cannon | AAM-018 | 1.20 | 1.27 |
+| AIM-9X Block I | AAM-054 | 0.87 | 1.11 |
+| AIM-120D | AAM-081 | 0.58 | 0.96 |
 
 #### Table 40 — F-22A human kills Su-57 AI: kill points
 
 | Credited weapon | Cadet | Rookie | Trained | Veteran | Ace |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| M61A2 20 mm cannon | 67 | 89 | 111 | 133 | 155 |
-| AIM-9X Block I | 56 | 74 | 93 | 111 | 130 |
-| AIM-120D | 49 | 66 | 82 | 99 | 115 |
+| M61A2 20 mm cannon | 71 | 94 | 118 | 141 | 165 |
+| AIM-9X Block I | 62 | 82 | 103 | 123 | 144 |
+| AIM-120D | 53 | 71 | 89 | 107 | 125 |
 
 **Acceptance check, Trained AI:** M61A2 20 mm cannon 111; AIM-9X Block I 93; AIM-120D 82.
 
@@ -780,17 +780,17 @@ Player rating 930; AI rating 955; aircraft factor **1.07** displayed (unrounded 
 
 | Credited weapon | Catalogue ID | Global multiplier | Relative weapon factor |
 | --- | --- | ---: | ---: |
-| GSh-30-1 30 mm | AAM-024 | 1.25 | 1.33 |
-| R-73 (catalogued proxy) | AAM-052 | 0.88 | 1.15 |
-| R-77-1 | AAM-083 | 0.81 | 1.11 |
+| GSh-30-1 30 mm | AAM-024 | 1.25 | 1.34 |
+| R-73 (catalogued proxy) | AAM-052 | 0.92 | 1.17 |
+| R-77-1 | AAM-083 | 0.66 | 1.04 |
 
 #### Table 42 — Su-57 human kills F-22A AI: kill points
 
 | Credited weapon | Cadet | Rookie | Trained | Veteran | Ace |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | GSh-30-1 30 mm | 86 | 114 | 143 | 172 | 200 |
-| R-73 (catalogued proxy) | 74 | 99 | 123 | 148 | 173 |
-| R-77-1 | 72 | 96 | 120 | 143 | 167 |
+| R-73 (catalogued proxy) | 75 | 100 | 125 | 150 | 176 |
+| R-77-1 | 67 | 89 | 111 | 134 | 156 |
 
 **Acceptance check, Trained AI:** GSh-30-1 30 mm 143; R-73 (catalogued proxy) 123; R-77-1 120.
 
@@ -802,17 +802,17 @@ Player rating 900; AI rating 930; aircraft factor **1.09** displayed (unrounded 
 
 | Credited weapon | Catalogue ID | Global multiplier | Relative weapon factor |
 | --- | --- | ---: | ---: |
-| M61 20 mm cannon | AAM-018 | 1.20 | 1.19 |
-| AIM-9X Block II | AAM-055 | 0.78 | 0.98 |
-| AIM-120C | AAM-080 | 0.62 | 0.91 |
+| M61 20 mm cannon | AAM-018 | 1.20 | 1.27 |
+| AIM-9X Block II | AAM-055 | 0.84 | 1.09 |
+| AIM-120C | AAM-080 | 0.62 | 0.98 |
 
 #### Table 44 — F-16C Block 70 human kills Su-57 AI: kill points
 
 | Credited weapon | Cadet | Rookie | Trained | Veteran | Ace |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| M61 20 mm cannon | 78 | 104 | 130 | 156 | 182 |
-| AIM-9X Block II | 64 | 86 | 107 | 128 | 150 |
-| AIM-120C | 59 | 79 | 98 | 118 | 138 |
+| M61 20 mm cannon | 83 | 110 | 138 | 166 | 193 |
+| AIM-9X Block II | 71 | 95 | 118 | 142 | 166 |
+| AIM-120C | 64 | 85 | 106 | 128 | 149 |
 
 **Acceptance check, Trained AI:** M61 20 mm cannon 130; AIM-9X Block II 107; AIM-120C 98.
 
@@ -832,19 +832,19 @@ Aircraft V7.0 supplies **Eurofighter Typhoon, Meteor = 925**; Su-57 = **930**. T
 
 | Weapon | AAM ID | Global multiplier | Relative weapon factor |
 | --- | --- | ---: | ---: |
-| Mauser BK-27 cannon | AAM-089 | 1.24 | 1.21 |
-| ASRAAM | AAM-057 | 0.81 | 1.00 |
-| IRIS-T | AAM-056 | 0.80 | 1.00 |
-| Meteor | AAM-087 | 0.50 | 0.84 |
+| Mauser BK-27 cannon | AAM-089 | 1.24 | 1.29 |
+| ASRAAM | AAM-057 | 0.81 | 1.08 |
+| IRIS-T | AAM-056 | 0.80 | 1.07 |
+| Meteor | AAM-087 | 0.50 | 0.92 |
 
 #### Table 46 — Eurofighter Typhoon human kills Su-57 AI
 
 | Weapon | Cadet | Rookie | Trained | Veteran | Ace |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Mauser BK-27 cannon | 74 | 99 | 123 | 148 | 173 |
-| ASRAAM | 61 | 81 | 101 | 122 | 142 |
-| IRIS-T | 61 | 81 | 101 | 121 | 141 |
-| Meteor | 51 | 69 | 86 | 103 | 120 |
+| Mauser BK-27 cannon | 79 | 105 | 131 | 157 | 183 |
+| ASRAAM | 65 | 87 | 109 | 131 | 153 |
+| IRIS-T | 65 | 87 | 109 | 130 | 152 |
+| Meteor | 56 | 75 | 93 | 112 | 131 |
 
 ### Annex G.5 — Human Su-57 kills Eurofighter Typhoon (Meteor configuration) AI
 
@@ -855,15 +855,15 @@ Player Su-57 930, target Eurofighter 925. AI target actually carries Meteor AAM-
 | Weapon | AAM ID | Global multiplier | Relative weapon factor |
 | --- | --- | ---: | ---: |
 | GSh-30-1 30 mm | AAM-024 | 1.25 | 1.38 |
-| R-73 (catalogued proxy) | AAM-052 | 0.88 | 1.19 |
-| R-77-1 | AAM-083 | 0.81 | 1.16 |
+| R-73 (catalogued proxy) | AAM-052 | 0.92 | 1.21 |
+| R-77-1 | AAM-083 | 0.66 | 1.08 |
 
 #### Table 48 — Su-57 human kills Meteor-equipped Eurofighter Typhoon AI
 
 | Weapon | Cadet | Rookie | Trained | Veteran | Ace |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | GSh-30-1 30 mm | 81 | 108 | 136 | 163 | 190 |
-| R-73 (catalogued proxy) | 70 | 94 | 117 | 141 | 164 |
-| R-77-1 | 68 | 91 | 114 | 137 | 159 |
+| R-73 (catalogued proxy) | 72 | 95 | 119 | 143 | 167 |
+| R-77-1 | 64 | 85 | 106 | 128 | 149 |
 
 **Recalibration decision, 10 November 2026:** AAM-080 AIM-120C raw 0.24 / scoring **0.62**; AAM-081 AIM-120D raw 0.16 / scoring **0.58**; AAM-087 Meteor raw 0.00 / scoring **0.50**. The source catalogue's 50% compression formula is unchanged; the raw values are revised expert test judgments, not probability estimates. All previous example scores involving these exact IDs as used or target reference weapons must use the recomputed scores in Tables 1–48. Tables for unrelated weapons remain unchanged. The live Weapons Catalogue sheet and GitHub CSV must match before implementation. No change to Aircraft V7.0 and no invented loadout mapping.
