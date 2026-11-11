@@ -51,7 +51,7 @@ The v0.4 specification includes test cases for unarmed F-111F and defensive-only
 - [Chess ELO Scoring Explained](docs/Chess-ELO-Scoring-Explained.md) — original aircraft-rating and pilot-model development.
 - [DCS Stats and Scoring 2](docs/DCS-Stats-and-Scoring-2.md) — **superseded** 6 November 2026 proposal to compress weapon multipliers 90% toward neutral.
 
-Those documents are **not** the current implementation specification. Do not implement their historical weapon factors or scores. The active approach is Weapons Catalogue **v1.1** with **50% raw compression**, a **relative opponent-weapon comparison**, and **loadout-sensitive reference selection**. Aircraft ratings V7.0 remain unchanged pending avionics audit; original F-16A IR-only 780 is provisional.
+Those documents are **not** the current implementation specification. Do not implement their historical weapon factors or scores. The active approach is Weapons Catalogue **v1.1** with **50% raw compression**, a **relative opponent-weapon comparison**, and **loadout-sensitive reference selection**. Aircraft ratings in V7.0 remain unchanged pending avionics audit. Six static best-weapon ID mappings were corrected (Su-27, Su-33, MiG-29 early, F-14A, F-14B and early F/A-18C); F-16A IR-only 780 remains provisional.
 
 This repository contains specifications and data snapshots, not an executable DCS scoring implementation.
 
@@ -69,5 +69,5 @@ This repository contains specifications and data snapshots, not an executable DC
 
 - Added **PL-10 (AAM-103)** as advanced imaging infrared HOBS/LOAL missile, scoring **0.80**, with platform and DCS-mod integration explicitly unverified.
 - Revised **17 existing missile multipliers** and kept AIM-120C **0.62**, AIM-120D **0.58** and Meteor **0.50** unchanged.
-- Recomputed affected JIRA worked examples and Annexes D–G. Revisions to the actual target-reference selection: Su-27 AI carrying R-27ER uses **0.75** instead of R-73; MiG-29A AI carrying R-27R uses **0.79** instead of R-73. Aircraft rating table V7.0 not modified.
+- Recomputed affected JIRA worked examples and Annexes D–G. Revisions to the actual target-reference selection: Su-27 AI carrying R-27ER uses **0.75** instead of R-73; MiG-29A AI carrying R-27R uses **0.79** instead of R-73. V7.0 aircraft ratings were not modified, but six static best-weapon mappings were corrected.
 - Historical docs and v1.0 remain unchanged. The existing Google Docs and Sheets IDs continue to be the authoritative links.
