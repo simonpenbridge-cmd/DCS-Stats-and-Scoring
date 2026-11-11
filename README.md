@@ -1,6 +1,6 @@
 # DCS 3.0 — Player vs AI Air-to-Air Scoring
 
-**Current working version: JIRA implementation brief v0.4, 9 November 2026; Weapons Catalogue v1.1.** This repository preserves the project's historical reasoning and a dated snapshot of the current technical specification, recalibrated on 10 November 2026. The linked Google Docs and Google Sheets are the **authoritative live working copies**, not automatically synchronised with GitHub.
+**Current working version: JIRA implementation brief v0.4, 9 November 2026; Weapons Catalogue v1.1.** This repository preserves the project's historical reasoning and a dated snapshot of the current technical specification, recalibrated on 11 November 2026. The linked Google Docs and Google Sheets are the **authoritative live working copies**, not automatically synchronised with GitHub.
 
 ## Current model
 
@@ -14,7 +14,7 @@
 - **Unknown or uncatalogued required weapon:** record for review; do not invent a 1.00 reference.
 - **No era bonus:** the same formula applies to World War II, Korea, Cold War and modern combat. Pilot-versus-pilot scoring is out of scope.
 
-The Weapons Catalogue v1.1 **scoring multiplier** already incorporates 50% compression from its raw weapon difficulty. One exact AAM weapon variant retains its universal multiplier on every aircraft. AIM-54A (AAM-076) is **0.84** and AIM-54C (AAM-077) is **0.79**; AIM-120C **0.62**, AIM-120D **0.58** and Meteor **0.50** are the 10 November 2026 approved recalibration; AIM-9L 1.00, AIM-9M 0.94 and M61 1.20 remain unchanged. The 0.50 in the *relative* factor weights the comparison of **two existing multipliers**; never compress the catalogue factor a second time.
+The Weapons Catalogue v1.1 **scoring multiplier** already incorporates 50% compression from its raw weapon difficulty. One exact AAM weapon variant retains its universal multiplier on every aircraft. AIM-54A (AAM-076) is **0.72** and AIM-54C (AAM-077) is **0.68**; AIM-120C **0.62**, AIM-120D **0.58** and Meteor **0.50** are the 10 November 2026 approved recalibration; AIM-9L 1.00, AIM-9M 0.94 and M61 1.20 remain unchanged. The 0.50 in the *relative* factor weights the comparison of **two existing multipliers**; never compress the catalogue factor a second time.
 
 **Presentation standard:** Human-readable tables show factors and weapon multipliers to **no more than two decimal places**; points awarded are whole numbers. Code and calculations must retain the **original source precision** and round only the final points award. The CSV data snapshots deliberately preserve the original catalogue precision.
 
@@ -23,7 +23,7 @@ The Weapons Catalogue v1.1 **scoring multiplier** already incorporates 50% compr
 - [Complete JIRA implementation brief v0.4, Tables 1–48 and Annexes A–G](docs/JIRA-Implementation-Brief-v0.4.md)
 - [Archived JIRA implementation brief v0.3, Tables 1–31](docs/JIRA-Implementation-Brief-v0.3.md)
 - [Aircraft A2A Ratings V7.0 snapshot — 199 aircraft, including best-weapon mappings](data/aircraft-a2a-ratings-v7.csv)
-- [A2A Weapons Catalogue v1.1 snapshot — 101 weapon entries, revised Phoenix](data/weapons-catalogue-v1.1.csv)
+- [A2A Weapons Catalogue v1.1 snapshot — 103 weapon entries, revised BVR/WVR missiles and new PL-10](data/weapons-catalogue-v1.1.csv)
 - [Archived A2A Weapons Catalogue v1.0 snapshot](data/weapons-catalogue-v1.csv)
 
 ### Live working files (authoritative)
@@ -63,3 +63,11 @@ This repository contains specifications and data snapshots, not an executable DC
 - **AAM-087 Meteor:** scoring multiplier 0.50 (raw 0.00).
 - The 50% raw-score compression and relative weapon comparison formulas are retained. All affected JIRA examples, annexes and live catalogue entries were recomputed against these new subjective scoring assumptions. This is a scoring-model tuning exercise, not measured missile kill probability.
 - Eurofighter Typhoon (Meteor configuration) uses the existing Aircraft V7.0 rating **925** and is compared against Su-57 **930**; real DCS mod loadout availability remains subject to verification.
+
+
+## 11 November 2026 BVR/WVR hierarchy and PL-10 addition
+
+- Added **PL-10 (AAM-103)** as advanced imaging infrared HOBS/LOAL missile, scoring **0.80**, with platform and DCS-mod integration explicitly unverified.
+- Revised **17 existing missile multipliers** and kept AIM-120C **0.62**, AIM-120D **0.58** and Meteor **0.50** unchanged.
+- Recomputed affected JIRA worked examples and Annexes D–G. Revisions to the actual target-reference selection: Su-27 AI carrying R-27ER uses **0.75** instead of R-73; MiG-29A AI carrying R-27R uses **0.79** instead of R-73. Aircraft rating table V7.0 not modified.
+- Historical docs and v1.0 remain unchanged. The existing Google Docs and Sheets IDs continue to be the authoritative links.
