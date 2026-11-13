@@ -869,3 +869,56 @@ For DCS reference evidence, Heatblur documents AWG-9 tracking up to 24 tracks an
 - Section 6.5 remains pending approval; annexes E (Early Modern) and F (Modern) remain planned.
 
 **Version preservation:** JIRA v0.3 and Weapons Catalogue v1.0 remain unchanged as historic references. This v0.4 draft is paired with the separate live Weapons Catalogue v1.1. The GitHub copies are dated snapshots and do not automatically synchronise with the live Google files.
+
+## Part Three — Strategic support aircraft (approved rating baseline, 13 November 2026)
+
+**Scope.** The existing Player-versus-AI scoring formula is unchanged. The aircraft rating, not the final kill award, is updated by category for this approved baseline. AWACS/AEW&C ratings are **2.00 ×** their previous V7 ratings because they are strategic force multipliers; existing air-to-air tanker ratings remain at **1.00 ×**; transport ratings are **exactly 2/3 ×** the prior rating and rounded to an integer. Four historical tanker variants have provisional baseline ratings.
+
+**Implementation rule.** Use the approved rating as the target's V7 A2A rating in the existing Elo-style aircraft factor. **Do not apply a second AWACS/tanker/transport multiplier to the award.** Their air-to-air reference weapon is selected by the existing unarmed/defensive-only target rule, subject to the actual aircraft fit. Historical variant identification, DCS mod status and those four new tanker ratings require verification; the role adjustment is approved but the underlying performance calibration remains provisional.
+
+**Table 64 — Support-aircraft rating update (26 entries)**
+
+#### AWACS (×2.00)
+
+| Aircraft / variant | Prior rating | Approved rating |
+|---|---:|---:|
+| E-7 Wedgetail | 425 | **850** |
+| E-3A Sentry | 390 | **780** |
+| KJ-2000 | 390 | **780** |
+| A-50 Mainstay | 385 | **770** |
+| E-2D Advanced Hawkeye | 375 | **750** |
+| E-2C Hawkeye | 355 | **710** |
+
+#### Tanker (×1.00; four new provisional types)
+
+| Aircraft / variant | Prior rating | Approved rating |
+|---|---:|---:|
+| A330 MRTT | 425 | **425** |
+| KC-46A Pegasus | 420 | **420** |
+| KC-10A Extender | 405 | **405** |
+| KC-135R Stratotanker | 380 | **380** |
+| Il-78 Midas | 375 | **375** |
+| Victor K.2 | null | **365** |
+| KA-6D Intruder tanker | null | **350** |
+| KC-130F Hercules | null | **305** |
+| KC-97G Stratofreighter | null | **285** |
+
+#### Transport (×2/3, rounded)
+
+| Aircraft / variant | Prior rating | Approved rating |
+|---|---:|---:|
+| C-17A Globemaster III | 400 | **267** |
+| A400M Atlas | 400 | **267** |
+| C-5M Galaxy | 385 | **257** |
+| An-124 Ruslan | 380 | **253** |
+| Il-76MD | 375 | **250** |
+| C-130J Super Hercules | 335 | **223** |
+| C-130H Hercules | 300 | **200** |
+| An-12 Cub | 290 | **193** |
+| An-26 Curl | 260 | **173** |
+| C-47 Dakota | 245 | **163** |
+| C-54 Skymaster | 235 | **157** |
+
+**Further examination (not yet applied):** Tanker operational value should be assessed from *usable transferable fuel at a specified refuelling radius*, rather than ferry range alone. Transport value should be assessed from *payload deliverable across a specified mission range*, not maximum payload multiplied by maximum ferry range. Record these as possible recalibrations; do not modify the baseline until a new scale is accepted.
+
+**Live source of truth:** [Aircraft V7.0 master, Sheet1 and Support Aircraft Ratings audit tab](https://docs.google.com/spreadsheets/d/1Whm0B302ITesvfZ9S_Z-5VWFTclyoMdodv5AnfAAb6s/edit). The preceding tables, bomber model, weapons catalogue and historical notes are retained.
