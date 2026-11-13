@@ -22,7 +22,7 @@ The Weapons Catalogue v1.1 **scoring multiplier** already incorporates 50% compr
 
 - [Complete JIRA implementation brief v0.4, Tables 1–48 and Annexes A–G](docs/JIRA-Implementation-Brief-v0.4.md)
 - [Archived JIRA implementation brief v0.3, Tables 1–31](docs/JIRA-Implementation-Brief-v0.3.md)
-- [Aircraft A2A Ratings V7.0 snapshot — 203 aircraft, including best-weapon mappings](data/aircraft-a2a-ratings-v7.csv)
+- [Aircraft A2A Ratings V7.0 snapshot — 208 aircraft, including best-weapon mappings](data/aircraft-a2a-ratings-v7.csv)
 - [A2A Weapons Catalogue v1.1 snapshot — 103 weapon entries, revised BVR/WVR missiles and new PL-10](data/weapons-catalogue-v1.1.csv)
 - [Archived A2A Weapons Catalogue v1.0 snapshot](data/weapons-catalogue-v1.csv)
 
@@ -74,4 +74,8 @@ This repository contains specifications and data snapshots, not an executable DC
 
 ### 13 November 2026 — Support aircraft ratings
 
-The V7.0 master now includes **203 aircraft**. The approved 26-aircraft support baseline doubles six AWACS/AEW&C ratings, retains five existing tanker ratings and adds four historical tanker types (Victor K.2, KA-6D, KC-130F and KC-97G), and reduces 11 transport ratings to two-thirds of their former values. Original values are preserved in the new **Support Aircraft Ratings** tab of the live master; the active CSV snapshot includes the same revised ratings. Tanker fuel offload at radius and transport payload-range refinements are reserved for a later review. See [Part Three of the JIRA specification](docs/JIRA-Implementation-Brief-v0.4.md).
+The V7.0 master now includes **208 aircraft**. The approved 26-aircraft support baseline doubles six AWACS/AEW&C ratings, retains five existing tanker ratings and adds four historical tanker types (Victor K.2, KA-6D, KC-130F and KC-97G), and reduces 11 transport ratings to two-thirds of their former values. Original values are preserved in the new **Support Aircraft Ratings** tab of the live master; the active CSV snapshot includes the same revised ratings. The subsequently approved payload–range recalibration is documented below. See [Part Three of the JIRA specification](docs/JIRA-Implementation-Brief-v0.4.md).
+
+### 13 November 2026 — Final tanker and transport capacity–range review
+
+The live Aircraft V7.0 master contains **208 aircraft**. The separate **Support Capacity-Range** tab records 31 approved target ratings (six doubled AWACS, nine fuel-offload/radius-based tankers, and 16 payload–range-based transports). Five new transports are **C-160 Transall, Aeritalia G.222, C-27J Spartan, CASA C295 and CN-235**. The C-47 remains at 163; tanker ratings range from 245 (KA-6D) to 450 (KC-10A), and transports from 163 (C-47) to 320 (An-124). Prior values are retained in **Support Aircraft Ratings**. Bomber five-factor equal weightings remain separately documented; fighter-bombers retain their approved V7 ratings. See Section 9.5 and Section 16 / Table 65 of the [JIRA specification](docs/JIRA-Implementation-Brief-v0.4.md). These are aircraft-rating changes, not new multipliers on the kill award.
