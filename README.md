@@ -22,7 +22,7 @@ The Weapons Catalogue v1.1 **scoring multiplier** already incorporates 50% compr
 
 - [Complete JIRA implementation brief v0.4, Tables 1–48 and Annexes A–G](docs/JIRA-Implementation-Brief-v0.4.md)
 - [Archived JIRA implementation brief v0.3, Tables 1–31](docs/JIRA-Implementation-Brief-v0.3.md)
-- [Aircraft A2A Ratings V7.0 snapshot — 199 aircraft, including best-weapon mappings](data/aircraft-a2a-ratings-v7.csv)
+- [Aircraft A2A Ratings V7.0 snapshot — 203 aircraft, including best-weapon mappings](data/aircraft-a2a-ratings-v7.csv)
 - [A2A Weapons Catalogue v1.1 snapshot — 103 weapon entries, revised BVR/WVR missiles and new PL-10](data/weapons-catalogue-v1.1.csv)
 - [Archived A2A Weapons Catalogue v1.0 snapshot](data/weapons-catalogue-v1.csv)
 
@@ -71,3 +71,7 @@ This repository contains specifications and data snapshots, not an executable DC
 - Revised **17 existing missile multipliers** and kept AIM-120C **0.62**, AIM-120D **0.58** and Meteor **0.50** unchanged.
 - Recomputed affected JIRA worked examples and Annexes D–G. Revisions to the actual target-reference selection: Su-27 AI carrying R-27ER uses **0.75** instead of R-73; MiG-29A AI carrying R-27R uses **0.79** instead of R-73. V7.0 aircraft ratings were not modified, but six static best-weapon mappings were corrected.
 - Historical docs and v1.0 remain unchanged. The existing Google Docs and Sheets IDs continue to be the authoritative links.
+
+### 13 November 2026 — Support aircraft ratings
+
+The V7.0 master now includes **203 aircraft**. The approved 26-aircraft support baseline doubles six AWACS/AEW&C ratings, retains five existing tanker ratings and adds four historical tanker types (Victor K.2, KA-6D, KC-130F and KC-97G), and reduces 11 transport ratings to two-thirds of their former values. Original values are preserved in the new **Support Aircraft Ratings** tab of the live master; the active CSV snapshot includes the same revised ratings. Tanker fuel offload at radius and transport payload-range refinements are reserved for a later review. See [Part Three of the JIRA specification](docs/JIRA-Implementation-Brief-v0.4.md).
