@@ -870,13 +870,23 @@ For DCS reference evidence, Heatblur documents AWG-9 tracking up to 24 tracks an
 
 **Version preservation:** JIRA v0.3 and Weapons Catalogue v1.0 remain unchanged as historic references. This v0.4 draft is paired with the separate live Weapons Catalogue v1.1. The GitHub copies are dated snapshots and do not automatically synchronise with the live Google files.
 
-## Part Three — Strategic support aircraft (approved rating baseline, 13 November 2026)
+### 9.5 — Aircraft target categories and strategic value
+
+The v0.4 PvAI kill award remains `ROUND[100 × destroyed AI skill × aircraft factor × relative weapon factor]`. The aircraft rating in V7 includes any approved target-category value. **Do not multiply the final kill award again by an AWACS, tanker or transport category bonus.**
+
+**Bombers:** retain the existing equal-20% five-component method: kill difficulty, bomb load, range, accuracy and stand-off capability. Bomber Value out of 100 maps to aircraft rating ×10, for the exact configuration selected in the live `Bomber Value Model`. **Fighter-bombers and tactical strike aircraft:** retain existing independent V7 scores (Il-10 325, Mosquito FB.VI 352, Buccaneer S.2B 575, F-111A 630, F-111F 640); F-117A 430 is provisional, outside the main master.
+
+**AWACS:** six original V7 aircraft ratings remain doubled, reflecting strategic airborne warning and control value. **Tankers:** nine ratings use the logarithmic fuel offload (tonnes) × operational radius (nautical miles) comparison, with approved scores 245–450. **Transports:** 16 ratings use the logarithmic payload (tonnes) × actual loaded range (km) comparison, approved scores 163–320; the C-47 Dakota benchmark stays at 163. The additions are C-160 Transall, Aeritalia G.222, C-27J Spartan, CASA C295 and CN-235. All current support ratings and input data are in the live `Support Capacity-Range` tab; the preceding `Support Aircraft Ratings` tab remains as historical comparison.
+
+**Other strategic and support aircraft:** reconnaissance, maritime patrol and electronic warfare await their own specific consideration or retain existing values. No unapproved target-category multiplier is introduced. The weapon-reference fallback for unarmed or defensive-only AI uses the player's lowest-multiplier eligible offensive A2A weapon actually equipped, and final points are rounded once. The current bomber values remain in `Bomber Value Model`, while full model detail and worked tests are in the [live Google JIRA specification](https://docs.google.com/document/d/1vWaoJLwBNJmNQKArwjg1slQY7EOgR-pvnM7OnytzPtc/edit).
+
+## Part Three — Strategic support aircraft (historical baseline and final capacity–range recalibration)
 
 **Scope.** The existing Player-versus-AI scoring formula is unchanged. The aircraft rating, not the final kill award, is updated by category for this approved baseline. AWACS/AEW&C ratings are **2.00 ×** their previous V7 ratings because they are strategic force multipliers; existing air-to-air tanker ratings remain at **1.00 ×**; transport ratings are **exactly 2/3 ×** the prior rating and rounded to an integer. Four historical tanker variants have provisional baseline ratings.
 
 **Implementation rule.** Use the approved rating as the target's V7 A2A rating in the existing Elo-style aircraft factor. **Do not apply a second AWACS/tanker/transport multiplier to the award.** Their air-to-air reference weapon is selected by the existing unarmed/defensive-only target rule, subject to the actual aircraft fit. Historical variant identification, DCS mod status and those four new tanker ratings require verification; the role adjustment is approved but the underlying performance calibration remains provisional.
 
-**Table 64 — Support-aircraft rating update (26 entries)**
+**Table 64 — Initial role-adjusted support aircraft ratings (26 historical entries; superseded by Table 65)**
 
 #### AWACS (×2.00)
 
@@ -919,6 +929,55 @@ For DCS reference evidence, Heatblur documents AWG-9 tracking up to 24 tracks an
 | C-47 Dakota | 245 | **163** |
 | C-54 Skymaster | 235 | **157** |
 
-**Further examination (not yet applied):** Tanker operational value should be assessed from *usable transferable fuel at a specified refuelling radius*, rather than ferry range alone. Transport value should be assessed from *payload deliverable across a specified mission range*, not maximum payload multiplied by maximum ferry range. Record these as possible recalibrations; do not modify the baseline until a new scale is accepted.
+**Initial review note (subsequently implemented in Section 16):** Tanker operational value should be assessed from *usable transferable fuel at a specified refuelling radius*, rather than ferry range alone. Transport value should be assessed from *payload deliverable across a specified mission range*, not maximum payload multiplied by maximum ferry range. The subsequently approved ratings are now in the live master and Table 65; these original figures remain available for historical comparison.
 
-**Live source of truth:** [Aircraft V7.0 master, Sheet1 and Support Aircraft Ratings audit tab](https://docs.google.com/spreadsheets/d/1Whm0B302ITesvfZ9S_Z-5VWFTclyoMdodv5AnfAAb6s/edit). The preceding tables, bomber model, weapons catalogue and historical notes are retained.
+**Live source of truth:** [Aircraft V7.0 master, Sheet1, Support Aircraft Ratings and Support Capacity-Range tabs](https://docs.google.com/spreadsheets/d/1Whm0B302ITesvfZ9S_Z-5VWFTclyoMdodv5AnfAAb6s/edit). The preceding tables, bomber model, weapons catalogue and historical notes are retained.
+
+
+### 16. Final support-aircraft target ratings — payload and range
+
+**Approval (13 November 2026).** Nine tankers and 16 transports are recalibrated from their initial role-adjusted ratings. The six previously doubled AWACS ratings remain in force. Five additional transports have been added, taking the support register to 31 aircraft and the main master to 208 aircraft. Table 64 above is historical; Table 65 is the current approved register.
+
+**Tanker method.** Let `I = transferable fuel (tonnes) × operating radius (nautical miles)`. The approved comparison uses `ROUND[245 + 205 × LN(I / 1,020) / LN(94,120 / 1,020)]`, calibrated between KA-6D (about 6.80 tonnes at 150 nm, rating 245) and KC-10A (about 94.12 tonnes at 1,000 nm, rating 450). Tanker mission profiles use different distances and several historical estimates, particularly Victor K.2, Il-78 and KC-97G, are provisional; do not treat all input measurements as a controlled published performance test.
+
+**Transport method.** Let `J = cargo actually carried (tonnes) × distance flown with that load (km)`. The accepted scale is `ROUND[163 + 157 × LN(J / 4,080) / LN(540,000 / 4,080)]`, anchored at C-47 Dakota 163 (kept fixed as the abundant wartime transport benchmark) and An-124 Ruslan 320. Compare actual payload–range pairs, never maximum cargo with an unrelated maximum ferry range. The C-27J test uses a light 4.54-tonne load over 5,056 km. Other fitted loadouts or missions require revalidation rather than silently applying a generic performance claim.
+
+**AWACS and implementation.** E-7 850; E-3A and KJ-2000 780; A-50 770; E-2D 750; E-2C 710. These are unchanged from the approved doubled ratings. All 31 final values are written directly into aircraft rating column C of V7 `Sheet1`. The kill engine uses the rating once in its normal aircraft factor; no secondary support-category multiplier or different skill/weapon multiplier is added. Keep bomber values and independent strike-aircraft values separate, as explained in Section 9.5.
+
+**Table 65 — Final approved support-aircraft ratings**
+
+| Category | Aircraft / variant | Initial rating | Final rating | Capacity × distance |
+|---|---|---:|---:|---:|
+| AWACS | E-7 Wedgetail | 850 | **850** | — |
+| AWACS | E-3A Sentry | 780 | **780** | — |
+| AWACS | KJ-2000 | 780 | **780** | — |
+| AWACS | A-50 Mainstay | 770 | **770** | — |
+| AWACS | E-2D Advanced Hawkeye | 750 | **750** | — |
+| AWACS | E-2C Hawkeye | 710 | **710** | — |
+| Tanker | KC-10A Extender | 405 | **450** | 94,120 t·nm |
+| Tanker | A330 MRTT | 425 | **447** | 87,500 t·nm |
+| Tanker | KC-46A Pegasus | 420 | **432** | 63,590 t·nm |
+| Tanker | KC-135R Stratotanker | 380 | **424** | 53,120 t·nm |
+| Tanker | Il-78 Midas | 375 | **405** | 35,100 t·nm |
+| Tanker | Victor K.2 | 365 | **389** | 24,500 t·nm |
+| Tanker | KC-130F Hercules | 305 | **357** | 12,218 t·nm |
+| Tanker | KC-97G Stratofreighter | 285 | **313** | 4,550 t·nm |
+| Tanker | KA-6D Intruder tanker | 350 | **245** | 1,020 t·nm |
+| Transport | An-124 Ruslan | 253 | **320** | 540,000 t·km |
+| Transport | C-5M Galaxy | 257 | **318** | 507,546 t·km |
+| Transport | C-17A Globemaster III | 267 | **304** | 332,486 t·km |
+| Transport | Il-76MD | 250 | **287** | 192,000 t·km |
+| Transport | A400M Atlas | 267 | **273** | 125,940 t·km |
+| Transport | An-12 Cub | 193 | **255** | 72,000 t·km |
+| Transport | C-130J Super Hercules | 223 | **244** | 51,410 t·km |
+| Transport | C-130H Hercules | 200 | **229** | 32,268 t·km |
+| Transport | C-27J Spartan | — | **218** | 22,934 t·km |
+| Transport | C-160 Transall | — | **208** | 16,800 t·km |
+| Transport | Aeritalia G.222 | — | **201** | 13,152 t·km |
+| Transport | CASA C295 | — | **201** | 13,500 t·km |
+| Transport | C-54 Skymaster | 157 | **189** | 9,053 t·km |
+| Transport | CN-235 | — | **184** | 7,800 t·km |
+| Transport | An-26 Curl | 173 | **176** | 6,050 t·km |
+| Transport | C-47 Dakota | 163 | **163** | 4,080 t·km |
+
+The live [V7 support capacity–range register](https://docs.google.com/spreadsheets/d/1Whm0B302ITesvfZ9S_Z-5VWFTclyoMdodv5AnfAAb6s/edit#gid=221136571) contains the selected offloads, operating radii, useful payloads, loaded ranges and verification qualifications. Original role-adjusted support values remain in the previous comparison tab.
