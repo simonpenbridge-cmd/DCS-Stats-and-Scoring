@@ -880,6 +880,16 @@ The v0.4 PvAI kill award remains `ROUND[100 × destroyed AI skill × aircraft fa
 
 **Other strategic and support aircraft:** reconnaissance, maritime patrol and electronic warfare await their own specific consideration or retain existing values. No unapproved target-category multiplier is introduced. The weapon-reference fallback for unarmed or defensive-only AI uses the player's lowest-multiplier eligible offensive A2A weapon actually equipped, and final points are rounded once. The current bomber values remain in `Bomber Value Model`, while full model detail and worked tests are in the [live Google JIRA specification](https://docs.google.com/document/d/1vWaoJLwBNJmNQKArwjg1slQY7EOgR-pvnM7OnytzPtc/edit).
 
+### 9.6 — Helicopter destruction and loadout-specific weapon handling
+
+The approved DCS PvAI target system now includes **21 helicopter variants** as AI targets. Human fixed-wing aircraft destroying AI helicopters use the **same aircraft factor, AI skill factor, relative-weapon comparison and final-only rounding** as all other air-to-air kills. These helicopter ratings are V7 aircraft ratings, **not a flat 40-point award**. The current DCS helicopter score of 40 points is a comparator only.
+
+Each helicopter's approved rating is the sum of (1) the original assessment, (2) lift/operational-mission adjustment, and (3) self-defence/survivability adjustment. The numerical ratings already reflect transport capacity, reconnaissance and ASW military value, armour, warning systems, chaff/flare dispensers and terrain masking. **Never apply an additional passenger, cargo, countermeasure or transport-role multiplier** to the final points score unless separately authorised in a new scoring model.
+
+**Offensive weapon reference:** if an AI helicopter has only defensive crew-operated door/ramp weapons or no eligible offensive A2A weapon, use the established unarmed-target reference, the lowest catalogue multiplier among the attacking player's actually carried eligible offensive A2A weapons. For an AI helicopter with a verified offensive AAM or qualifying offensive gun, use the minimum multiplier among the target's actually fitted eligible offensive A2A weapons, exactly as for fixed-wing aircraft. Mi-24P's conditional R-60M may use existing **AAM-045**, only when it is genuinely fitted. No dedicated calibrated Stinger or Mistral entry is currently in Weapons Catalogue v1.1. Cases requiring missing offensive AAM or gun IDs must be **held for catalogue mapping**, not silently given a generic multiplier.
+
+DCS mission-event handling must permit helicopter targets; use the type/variant as a key into master rating column C. The new live `Helicopter Ratings` tab records all 21 approved variants and their component scores. See **Part Four, Section 17, Table 66** for the complete list and implementation acceptance rules.
+
 ## Part Three — Strategic support aircraft (historical baseline and final capacity–range recalibration)
 
 **Scope.** The existing Player-versus-AI scoring formula is unchanged. The aircraft rating, not the final kill award, is updated by category for this approved baseline. AWACS/AEW&C ratings are **2.00 ×** their previous V7 ratings because they are strategic force multipliers; existing air-to-air tanker ratings remain at **1.00 ×**; transport ratings are **exactly 2/3 ×** the prior rating and rounded to an integer. Four historical tanker variants have provisional baseline ratings.
@@ -981,3 +991,45 @@ The v0.4 PvAI kill award remains `ROUND[100 × destroyed AI skill × aircraft fa
 | Transport | C-47 Dakota | 163 | **163** | 4,080 t·km |
 
 The live [V7 support capacity–range register](https://docs.google.com/spreadsheets/d/1Whm0B302ITesvfZ9S_Z-5VWFTclyoMdodv5AnfAAb6s/edit#gid=221136571) contains the selected offloads, operating radii, useful payloads, loaded ranges and verification qualifications. Original role-adjusted support values remain in the previous comparison tab.
+
+## Part Four — Air-to-air scoring against helicopters
+
+### 17. Approved helicopter target ratings and implementation
+
+**17.1 Scope.** Player fixed-wing aircraft attacking AI helicopters use the existing PvAI formula: `ROUND[100 × destroyed AI skill × aircraft factor × relative weapon factor]`. No new pilot-versus-pilot rules, era bonus, extra helicopter multiplier or 40-point floor/cap is introduced. The AI's rating is the approved type-specific helicopter rating in V7.0. All five Cadet/Rookie/Trained/Veteran/Ace skill factors remain unchanged.
+
+**17.2 Rating components.** The approved helicopter target rating is `original helicopter assessment + military mission/lift adjustment + self-defence adjustment`. Mission importance covers anti-armour attack, reconnaissance/fighter direction and sensor/target designation, anti-submarine operations, tactical troop capacity and useful cargo lift. Defensive survivability covers armour, warning gear, threat detection, infrared signature reduction, chaff/flairs and their dispensing, escape potential and terrain masking. Countermeasure *quantity alone* is not a proxy for missile defeat: relevance varies by weapon guidance and warning/dispensing integration. The rating is fixed by helicopter variant and agreed defensive fit, not by an unverified instantaneous cargo/passenger count.
+
+**17.3 Selected military-value examples.** CH-47F **405** and CH-53E **405** receive high heavy-lift mission awards; Mi-26 **415** receives the strongest heavy-cargo addition. The Mi-24P **485** includes a small mission allowance for its limited troop compartment; OH-58D **440** for reconnaissance/target designation. The naval SH-60B **335** and Ka-27PL **315** retain an ASW mission contribution. Early utility aircraft UH-1H **210**, H-21 **175**, H-19 **150** remain relatively low-valued. The nominal DCS helicopter-kill value of 40 is only a background comparator and does not replace this rating-sensitive formula.
+
+**17.4 Weapon and loadout precedence.** Validate the aircraft variant, the attacking player's actually fitted air-to-air weapon and the AI helicopter's actually carried eligible offensive air-to-air weapons. Door/ramp machine guns or defensive guns are not automatically offensive A2A weapon references. For an AI with no offensive A2A fit, use the unarmed/defensive-only fallback: the minimum multiplier on the player's eligible fitted weapons. For an AI with an eligible offensive A2A fit, use the minimum multiplier on the AI target's eligible fitted weapons. R-60M is available as **AAM-045** only when an approved/verified Mi-24P scenario genuinely fits that missile. Dedicated **Stinger, Mistral and helicopter-specific cannon multipliers remain unmapped** in Weapons Catalogue v1.1; hold any engagement requiring such a reference for catalogue review. Do not invent weapon multipliers, treat antitank missiles as an AAM by default, or assume a theoretical gun kill qualifies for an existing gun ID.
+
+**17.5 Event/lookup acceptance.** Add `Helicopter — ...` roles as permitted target classes in the AI-kill lookup; do not filter out rotorcraft. Confirm the fixed-wing pilot actually killed the AI helicopter, select its exact helicopter type, read rating column C, read target AI skill, resolve actual loadouts and reference weapon, compute without early rounding and award whole points. The aircraft master now has **229** entries; the separate `Helicopter Ratings` tab contains the approved 21-variant decomposition. Unknown variants or missing required weapon references are held for review instead of silently defaulting to 40.
+
+**Table 66 — Approved helicopter target ratings (aircraft ratings, not awarded kill points)**
+
+| Helicopter / variant | Role | Initial | Lift / mission Δ | Defence Δ | Approved V7 |
+|---|---|---:|---:|---:|---:|
+| AH-64D Apache Longbow | Attack | 570 | 0 | +15 | **585** |
+| Ka-52 Alligator | Attack | 560 | 0 | +15 | **575** |
+| Mi-28N Havoc | Attack | 550 | 0 | +10 | **560** |
+| Ka-50 Black Shark | Attack | 525 | 0 | +10 | **535** |
+| AH-64A Apache | Attack | 530 | 0 | 0 | **530** |
+| AH-1W Super Cobra | Attack | 495 | 0 | +10 | **505** |
+| Mi-24P Hind | Attack / Assault | 460 | +10 | +15 | **485** |
+| OH-58D Kiowa Warrior | Armed reconnaissance | 415 | +10 | +15 | **440** |
+| Mi-26 Halo | Heavy transport | 355 | +60 | 0 | **415** |
+| CH-53E Super Stallion | Heavy transport | 345 | +50 | +10 | **405** |
+| CH-47F Chinook | Heavy transport | 330 | +55 | +20 | **405** |
+| SA342 Gazelle Mistral | Armed reconnaissance | 395 | 0 | -5 | **390** |
+| AH-1G Cobra | Attack | 385 | 0 | -15 | **370** |
+| SH-60B Seahawk | Naval / ASW | 320 | +10 | +5 | **335** |
+| Ka-27PL Helix | Naval / ASW | 305 | +10 | 0 | **315** |
+| Mi-8MTV2 Hip | Utility / troop transport | 275 | +25 | +10 | **310** |
+| UH-60A Black Hawk | Utility / troop transport | 280 | +20 | 0 | **300** |
+| CH-46E Sea Knight | Tactical transport | 260 | +25 | 0 | **285** |
+| UH-1H Huey | Utility / troop transport | 205 | +10 | -5 | **210** |
+| H-21 Shawnee | Early troop transport | 170 | +15 | -10 | **175** |
+| H-19 Chickasaw | Early troop transport | 150 | +10 | -10 | **150** |
+
+**Authoritative sources:** [Aircraft Master V7.0 and Helicopter Ratings tab](https://docs.google.com/spreadsheets/d/1Whm0B302ITesvfZ9S_Z-5VWFTclyoMdodv5AnfAAb6s/edit#gid=238503717); [live JIRA scoring specification](https://docs.google.com/document/d/1vWaoJLwBNJmNQKArwjg1slQY7EOgR-pvnM7OnytzPtc/edit). A separate [helicopter scoring CSV](../data/helicopter-a2a-ratings-v1.csv) preserves each starting rating, mission adjustment, defensive adjustment and approved final score. DCS variant availability and precise air-to-air weapon mapping require verification wherever labelled as such in the live tab.
